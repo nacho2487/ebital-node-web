@@ -1,0 +1,49 @@
+{
+  "name": "ebital-web",
+  "version": "1.0.0",
+  "repository": {
+    "type": "git",
+    "url": "https://nacho2487@bitbucket.org/nacho2487/ebital-web.git"
+  },
+  "scripts": {
+    "start": "node app",
+    "start:watch": "nodemon app",
+    "test": "mocha ./src/server/test/ --reporter spec --timeout 15000 --recursive",
+    "lint": "eslint src/server/"
+  },
+  "dependencies": {
+    "bcrypt-nodejs": "^0.0.3",
+    "body-parser": "^1.14.2",
+    "cloudinary": "^1.3.1",
+    "co": "^4.6.0",
+    "compression": "^1.6.1",
+    "connect-mongo": "^1.1.0",
+    "cookie-parser": "^1.4.1",
+    "dotenv": "^2.0.0",
+    "errorhandler": "^1.4.3",
+    "express": "^4.13.4",
+    "express-flash": "^0.0.2",
+    "express-session": "^1.13.0",
+    "express-validator": "^2.19.0",
+    "i18n": "^0.7.0",
+    "jade": "^1.11.0",
+    "lodash": "4.3.0",
+    "lusca": "^1.3.0",
+    "method-override": "^2.3.5",
+    "mongoose": "^4.3.7",
+    "morgan": "^1.6.1",
+    "multer": "1.1.0",
+    "node-sass-middleware": "^0.9.7",
+    "nodemailer": "^2.1.0",
+    "passport": "0.3.2",
+    "passport-local": "^1.0.0"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^2.4.5",
+    "supertest": "^1.1.0"
+  },
+  "engines": {
+    "node": "6.2.0"
+  }
+}

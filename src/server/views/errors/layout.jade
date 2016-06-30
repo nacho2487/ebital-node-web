@@ -1,0 +1,24 @@
+doctype html
+html
+	head
+		meta(charset='utf-8')
+		meta(http-equiv='X-UA-Compatible', content='IE=edge')
+		meta(name='viewport', content='width=device-width, initial-scale=1.0')
+		meta(name='csrf-token', content=_csrf)
+		title #{title} - Ebital
+		link(rel='stylesheet', href='/css/main.css')
+		link(rel='stylesheet', href='/css/vendors/lightbox.min.css')
+		link(rel='stylesheet', href='/css/vendors/back-to-top.css')
+	body
+			.container
+				.navbar-header
+					a.navbar-brand(href=__('url.home'))
+					img(src="/images/logo.png" height="70px")    
+			block content
+		a.cd-top(href="#0") Top
+		script(src='/js/lib/jquery.min.js')
+		script(src='/js/lib/responsive-img.min.js')
+		script(src='/js/lib/bootstrap.min.js')
+		script(src='/js/lib/lightbox.min.js')
+		script(src='/js/lib/back-to-top.js')
+		script(src='/js/main.js')

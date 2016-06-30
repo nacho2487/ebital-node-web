@@ -1,0 +1,18 @@
+extends layout
+
+block content
+
+	.row.project-detail
+		.col-sm-3.news-left-sidebar
+			.text 
+				=__n("News", 2)
+				&nbsp;&nbsp;&nbsp;
+				i.fa.fa-caret-right
+				
+		.col-sm-9.project-right-sidebar
+			.row.top-side
+				+showMultipleImages(news.images)
+			.row.bottom-side
+				.col-sm-7.column.column-left
+					.title #{news.title[getLocale()]}
+					.text !{news.text[getLocale()]}

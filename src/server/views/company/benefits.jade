@@ -1,0 +1,37 @@
+extends ../layout
+
+block content
+	#content-banner.carousel.row
+		.col-sm-12
+			.item-img-about-us
+				img.img-about-us(data-src=">0:/images/benefits.jpg")
+				.banner-text
+					.title.col-sm-5.col-sm-offset-2
+						=__("Benefits")
+	.row
+		.col-sm-12.benfits-container
+			ul.benefits.col-sm-8.col-sm-offset-3
+				li
+					span=__("benefit_time")
+					img(src="/images/beneficios_calidad.png")
+				li
+					span=__("benefit_process")
+					img(src="/images/beneficios_procesos.png")
+				li
+					span=__("benefit_innovation") 
+					img(src="/images/beneficios_soluciones.png")
+				li
+					span=__("benefit_team")
+					img(src="/images/beneficios_equipo.png")
+				li
+					span=__("benefit_work")
+					img(src="/images/beneficios_ambiente.png")
+				li
+					span=__("benefit_finnancial")
+					img(src="/images/beneficios_capacidad.png")
+				li
+					span=__("benefit_projects")
+					img(src="/images/beneficios_edificio.png")
+						
+	.container.about-us
+		+company(company)

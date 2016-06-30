@@ -1,0 +1,32 @@
+doctype html
+html
+	head
+		meta(charset='utf-8')
+		meta(http-equiv='X-UA-Compatible', content='IE=edge')
+		meta(name='viewport', content='width=device-width, initial-scale=1.0')
+		meta(name='csrf-token', content=_csrf)
+		title #{title} - Ebital
+		link(rel='stylesheet', href='/css/main.css')
+	body
+	.signin
+		.auth-wrapper
+			include ../partials/flash
+			.auth-box
+				.auth-box__inner
+					.auth-box__col
+						.auth-box__brand
+							a.auth-box__brand__logo(href='/')
+								img(src='/images/logo.jpg', width='', height='')
+					.auth-box__col        
+						form(method='POST')
+							input(type='hidden', name='_csrf', value=_csrf)
+							.form-group
+								label.control-label(for='email') Usuario
+								input.form-control(type='text', name='email', id='email', autofocus=true)
+							.form-group
+								label.control-label(for='password') Contraseña
+								input.form-control(type='password', name='password', id='password')
+							.form-group
+								button.btn.btn-primary(type='submit')
+									| Iniciar sesión
+	

@@ -1,0 +1,103 @@
+// Buttons
+// -------------------------
+
+.btn {
+  border-radius: 0;
+  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.11), 1px 1px 0 rgba(255, 255, 255, 0.21) inset;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.btn-link {
+  box-shadow: none;
+}
+
+.btn-default, .btn-default:focus {
+  background-image: linear-gradient(to bottom, #ffffff 60%, #f8f8f8 100%);
+}
+
+// Forms
+// -------------------------
+
+.form-control:focus {
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1) inset;
+}
+.form-control {
+    -o-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+    -webkit-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+    transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+    background-color: white;
+    background-image: none;
+    border-radius: .3em;
+    border: 1px solid #ccc;
+    border-top-color: #c2c2c2;
+    border-bottom-color: #d6d6d6;
+    box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);
+    color: #333;
+    display: block;
+    line-height: 1.2;
+    height: 2.4em;
+    padding: 0 .75em;
+    width: 100%;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+select.form-controle {
+  -webkit-appearance: menulist;
+}
+.form-group {
+    margin-bottom: 1em;
+    position: relative;
+}
+
+.control-label {
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    word-wrap: normal;
+    transition: color 280ms;
+    color: #777;
+    display: inline-block;
+    margin-bottom: .5em;
+}
+
+.form-horizontal {
+  .control-label {
+    display: table-cell;
+    line-height: 2.4em;
+    margin-bottom: 0;
+    vertical-align: top;
+    width: 180px;
+    text-align: left;
+    padding-top: 0px;
+  }
+}
+
+// Alerts
+// -------------------------
+
+.alert {
+  border-radius: 0;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.10);
+}
+
+// Navbar
+// -------------------------
+
+.navbar-default {
+  border: 0;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
+
+  .navbar-nav {
+    > li > a {
+      font-size: 12px;
+      font-weight: 500;
+      text-transform: uppercase;
+      transition: all 0.2s linear;
+    }
+  }
+}

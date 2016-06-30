@@ -1,0 +1,239 @@
+@import "themes/default/variables";
+@import "variables";
+
+@import "vendors/bootstrap/bootstrap";
+@import "vendors/signin";
+@import "vendors/font-awesome/font-awesome";
+@import "themes/default/default";
+
+// Scaffolding
+// -------------------------
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  padding-top: 60px;
+  margin-bottom: 75px;
+  background-color: #fafafa;
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 45px;
+  line-height: 45px;
+
+  p, ul {
+    margin-bottom: 0;
+  }
+}
+
+// Input Fields
+// -------------------------
+
+textarea {
+  resize: vertical;
+}
+
+// Navbar
+// -------------------------
+
+.navbar-nav img {
+  width: 30px;
+  height: 30px;
+  margin: -15px 15px -15px;
+}
+
+.navbar .divider-vertical {
+  height: 25px;
+  margin: 22px 10px 0 0px;
+  border-right: 1px solid #f2f2f2;
+  border-left: 1px solid #f2f2f2;
+}
+
+// Alerts
+// -------------------------
+
+.alert {
+  margin-top: 20px;
+}
+
+// Thumbnails
+// -------------------------
+
+.thumbnail {
+  padding: 0;
+  border-radius: 0;
+  box-shadow: 0 0 5px #ccc, inset 0 0 0 #000;
+}
+
+// Font Icons
+// -------------------------
+
+.fa {
+  margin-right: 6px;
+}
+
+
+td.image {
+  width: 160px;
+}
+
+//Image Upload
+// -------------------------
+.btn-file {
+  overflow: hidden;
+  position: relative;
+  vertical-align: middle;
+  input {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0;
+    opacity: 0;
+    filter: alpha(opacity=0);
+    font-size: 23px;
+    height: 100%;
+    width: 100%;
+    direction: ltr;
+    cursor: pointer;
+  }
+}
+a {
+  color: #999;
+}
+.image-field {
+  float: left;
+  margin-bottom: 5px;
+  .checkbox {
+    position: absolute;
+    bottom: 0px;
+    top: 0px;
+  }
+  .thumbnail {
+    background-color: white;
+    border-radius: .3em;
+    border: 1px solid #ccc;
+    display: inline-block;
+    height: auto;
+    line-height: 1;
+    max-width: 100%;
+    padding: 4px;
+    position: relative; 
+    margin-bottom: 0px;
+    &:hover {
+      border-color: #1385e5;
+    }
+    &.selected {
+      border-color: #1385e5;
+    }
+    img {
+      height: auto;
+      max-width: 100%;
+    }
+  }
+}
+
+
+
+.field-upload {
+  position: absolute;
+  left: -9999px;
+}
+
+
+.ml-5 {
+    margin-left: .5em;
+}
+
+.navbar-right{
+  &.navbar-nav { 
+    li { 
+      a.navbar-brand {
+        font-size: 16px;
+      }
+    }
+  }
+}
+.index {
+  width: 1px;
+  cursor: pointer;
+}
+
+.form-buttons{
+   padding-top: 20px;
+   box-shadow: 0 -2px 0 rgba(0,0,0,0.1);
+   margin-top: 35px;
+}
+
+select.form-control {
+  -webkit-appearance: menulist;
+}
+.toolbar {
+    border-bottom: 1px dashed #e1e1e1;
+    margin-bottom: 2em;
+    padding-bottom: 2em;
+    padding-top: 2em;
+    a {
+      color: $brand-primary;
+    }
+}
+
+.btn-link{
+  width: 115px;
+  float: right;
+}
+
+.page-header {
+  margin-top: 10px;
+}
+
+.add-button {
+  margin-top: 20px;
+  float: right;
+  text-transform: lowercase; 
+  span {
+    display: inline-block;
+    &:first-letter {
+      text-transform: uppercase;
+    }
+  }
+}
+
+.no-message{
+  text-transform: lowercase;
+  &:first-letter {
+      text-transform: uppercase;
+  } 
+}
+
+li.active a {
+  color: #4da5f4;
+}
+
+.form-control, span {
+
+  &.number{
+    width: 15%;
+    float: left;
+    &.cross{
+      padding-top: 7px;
+    }
+  }
+  &#color {
+    width: 50%;
+  }
+
+}
+.color-group {
+  .evo-colorind{
+    float: left;
+    margin-left: 10px;
+    margin-top: 8px;
+  }
+}

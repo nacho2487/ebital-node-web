@@ -1,0 +1,55 @@
+extends ../layout
+
+block content
+	.row
+		if project.service
+			+projectHeader(project.service, services, project.state, showInProgress, showFinished)
+	.row.project-detail
+		.col-sm-3.project-left-sidebar
+			.static-text
+				.text
+					.title=project.title[getLocale()]
+					.description
+						if project.client
+							label #{__n("Client", 1)}:
+							br
+							span=project.client
+							br
+						if project.location
+							label #{__("Location")}:
+							br
+							span=project.location
+							br
+						if project.area[getLocale()]
+							label #{__("Area")}:
+							br
+							span=project.area[getLocale()]
+							br
+						if project.dateStart && project.dateStart.month && project.dateStart.year
+							label #{__("StartDate")}:
+							br
+							span #{__(project.dateStart.month)}&nbsp
+							span=project.dateStart.year
+							br
+						if project.dateEnd && project.dateEnd.month && project.dateEnd.year
+							label #{__("EndDate")}:
+							br
+							span #{__(project.dateEnd.month)}&nbsp
+							span=project.dateEnd.year
+							br 
+		.col-sm-9.project-right-sidebar
+			.row.top-side
+				+showMultipleImages(project.images)
+			.row.bottom-side
+				.col-sm-8.col-sm-offset-2.column.column-left
+					.text !{project.text[getLocale()]}
+			.row.bottom-side
+				.col-sm-9.col-sm-offset-1.column.column-left
+					if projectPrevUrl
+						a.prev.pull-left(href="/" + getLocale() + __("url.project").replace(":projectUrl", projectPrevUrl[getLocale()]))
+							i.fa.fa-play.fa-rotate-180
+							=__("Prevoius")
+					if projectNextUrl
+						a.next.pull-right(href="/" + getLocale() + __("url.project").replace(":projectUrl", projectNextUrl[getLocale()]))
+							=__("Next")
+							i.fa.fa-play

@@ -1,0 +1,23 @@
+extends ../layout
+block content
+	.toolbar
+		+returnLink('', __('Home'))
+	form.form-horizontal(method='POST', enctype="multipart/form-data")
+		input(type='hidden', name='_csrf', value=_csrf)
+		input(type='hidden', id='bannerid', value='#{banner._id}')
+		.form-group
+			label.col-sm-3.control-label(for='title')=__('Title')
+			.col-sm-7
+				+translateTextBox('title', banner.title)
+		.form-group
+			label.col-sm-3.control-label(for='description')=__('Phrase')
+			.col-sm-7
+				+translateTextBox('description', banner.description)
+		
+		.form-group
+			+addSingleImageField('banner-image', banner.image, __n("Image", 1))
+		.form-group
+			+publishField(banner.publish)
+		.form-group.form-buttons
+			button.btn.btn.btn-primary(type='submit')
+				=__('Save')

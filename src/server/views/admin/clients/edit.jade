@@ -1,0 +1,27 @@
+extends ../layout
+
+block content
+	.toolbar
+		+returnLink('/clients', __n("Client", 2))
+	form.form-horizontal(method='POST', enctype="multipart/form-data")
+		input(type='hidden', name='_csrf', value=_csrf)
+		input(type='hidden', id='clientId', value='#{client._id}')
+		.form-group
+			label.col-sm-3.control-label(for='name')=__("Name")
+			.col-sm-7
+				+translateTextBox('name', client.name)
+		.form-group
+			label.col-sm-3.control-label(for='company')=__("Company")
+			.col-sm-7
+				+translateTextBox('company', client.company)
+		.form-group
+			label.col-sm-3.control-label(for='comment')=__("Comment")
+			.col-sm-7
+				+translateText('comment', 5, client.comment)
+		.form-group
+			+addSingleImageField('client-image', client.image, __n("Image", 1))
+		.form-group
+			+publishField(client.publish)
+		.form-group.form-buttons
+			button.btn.btn.btn-primary(type='submit')
+				=__("Save")

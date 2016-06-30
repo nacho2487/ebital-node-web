@@ -1,0 +1,89 @@
+extends ../layout
+
+block content
+    +pageHeader("Project", 'projects', 2)
+    table.table.table-condensed
+        thead
+            tr
+                th 
+                th=__("Title")
+                th=__n("Service", 1)
+                th=__("State")
+                th=__("Published")
+                th
+        tbody
+            if projects.length
+                - each project, i in projects
+                    tr
+                        td.index
+                            i.fa.fa-sort
+                            input.id(type='hidden', value=project._id)
+                        td= project.title[getLocale()]
+                        td= project.service && project.service.title[getLocale()]
+                        td= getProjectState(project.state, __)
+                        td 
+                            if project.publish
+                                =__("Yes")
+                            else
+                                =__("No")
+                        td                           
+                            if project.highlighted
+                                a.btn.btn-link.unhighlight(href='#')
+                                    i.fa.fa-check.text-success
+                                    span.text-success=__("Highlighted")
+                                    input.projectId(type='hidden', value=project._id)
+                            else
+                                a.btn.btn-link.highlight(href='#')
+                                    i.fa.fa-upload.text-info
+                                    span=__("Highlight")
+                                    input.projectId(type='hidden', value=project._id)
+                            span#UnHighlight.hide=__("Unhighlight")
+                            span#Highlighted.hide=__("Highlighted")
+                            span#Highlight.hide=__("Highlight")
+                            +deleteLink('projects', project._id)
+                            +editLink('projects', project._id)
+
+
+            else 
+                tr
+                    td.no-message(colspan='4')
+                        =__n("NoMessage %%s", "NoMessage %%s", 2, __n("Project", 2))
+
+
+block scripts
+    script.
+        var fixHelperModified = function(e, tr) {
+                var $originals = tr.children();
+                var $helper = tr.clone();
+                $helper.children().each(function(index) {
+                $(this).width($originals.eq(index).width())
+                });
+                return $helper;
+            },
+        updateIndex = function(e, ui) {
+            $('#loading').show();
+            var urls = [];
+            $('td.index', ui.item.parent()).each(function (i) {
+                var id = $(this).find('.id').val();
+                urls.push('/admin/projects/' + id + '/position/' + i + '/update');
+            });
+            var promises = promisesUrl(urls);
+            $.when.apply($, promises).done(function(){
+                $('#loading').hide();
+            });  
+        };
+
+        function promisesUrl(urls){
+            var promises = [];
+            $.each(urls, function(i, url){
+                promises.push($.ajax(
+                {
+                    url: url,
+                    method: 'POST'
+                    }));
+            });
+            return promises;
+        }
+
+
+        $("table tbody").sortable({helper: fixHelperModified, stop: updateIndex}).disableSelection();

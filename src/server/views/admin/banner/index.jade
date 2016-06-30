@@ -1,0 +1,33 @@
++pageHeader("Banner", 'banners', 2)
+table.table.table-condensed
+	thead
+		tr
+			th
+			th=__n('Image', 1)
+			th=__('Title')
+			th=__('Published')
+			th
+	tbody
+		if banners.length
+			- each banner, i in banners
+				tr
+					td.index
+						i.fa.fa-sort
+						input.bannerId(type='hidden', value=banner._id)
+					td.image
+						+showImage(banner.image, 'banner-image')
+					td= banner.title[getLocale()]
+					td 
+						if banner.publish
+							=__('Yes')
+						else
+							=__('No')                     
+					td
+						+deleteLink('banners', banner._id)
+						+editLink('banners', banner._id)
+
+
+		else 
+			tr
+				td.no-message(colspan='4')
+					=__n("NoMessage %%s", "NoMessage %%s", 2, __n("Banner", 2))

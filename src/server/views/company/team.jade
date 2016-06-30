@@ -1,0 +1,13 @@
+extends ../layout
+
+block content
+	#content-banner.carousel.row
+		.col-sm-12
+			.item-img-about-us
+				+showImage(company.image)
+				.about-us-image
+					.title
+						=__("WeBuildNewHorizons")
+	.container.about-us
+		+company(company)
+	
