@@ -1,3 +1,6 @@
-src/client/css/vendors/* linguist-vendored
+src/client/css/vendors/* linguist-vendored=true
+src/client/css/themes/* linguist-vendored=true
+src/client/js/lib/* linguist-vendored=true
+src/client/fonts/* linguist-vendored=true
 
 * text=auto
