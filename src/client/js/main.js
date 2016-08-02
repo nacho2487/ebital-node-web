@@ -10,20 +10,20 @@ $(document).ready(function() {
 		  }
 	});
 
-	var $item = $('#content-banner.carousel .item'); 
+	var $item = $('#content-banner.carousel .item');
 	var $wHeight = $(window).height();
 	var $wWidth = $(window).width();
 	$item.eq(0).addClass('active');
-	$('#content-banner.carousel img').height($wHeight - 86); 
+	$('#content-banner.carousel img').height($wHeight - 86);
 	$('#content-banner.carousel img').width($wWidth);
 	$('#content-banner.carousel .item-img-about-us img').width($wWidth - 21);
 	//$item.addClass("full-screen");
 
-	var $itemAboutUS = $('.img-about-us'); 
-	$itemAboutUS.height($wHeight - 160); 
+	var $itemAboutUS = $('.img-about-us');
+	$itemAboutUS.height($wHeight - 160);
 	$itemAboutUS.width($wWidth - 21);
 	$itemAboutUS.addClass("full-screen");
-	
+
 	$(window).on('resize', function (){
 	  $wHeight = $(window).height();
 	  $wWidth = $(window).width();
@@ -31,7 +31,7 @@ $(document).ready(function() {
 	  $('#content-banner.carousel img').width($wWidth);
 
 	  $('#content-banner.carousel .item-img-about-us img').width($wWidth - 21);
-	  
+
 	  $itemAboutUS.height($wHeight - 160);
 	  $itemAboutUS.width($wWidth - 21);
 	});
@@ -70,14 +70,19 @@ $(document).ready(function() {
 	    next = $(this).siblings(':first');
 	  }
 	  next.children(':first-child').clone().appendTo($(this));
-	  
+
 		next=next.next();
 		if (!next.length) {
 			next = $(this).siblings(':first');
 		}
 
-	  next.children(':first-child').clone().appendTo($(this));	  
-	  $(this).find('.clip:nth-child(2)').removeClass('col-sm-1').removeClass('clip').addClass('col-sm-10').find("a").attr("data-lightbox", "project-image").find(".image-clip").removeClass(".image-clip");
-	});
+	  next.children(':first-child').clone().appendTo($(this));
+    if($(this).find('.clip:nth-child(2)').length){
+      $(this).find('.clip:nth-child(2)').removeClass('col-sm-1').removeClass('clip').addClass('col-sm-10').find("a").attr("data-lightbox", "project-image").find(".image-clip").removeClass(".image-clip");
+    } else if($(this).find('.clip').length === 1){
+      $(this).find('.clip:nth-child(1)').removeClass('col-sm-1').removeClass('clip').addClass('col-sm-12').find("a").attr("data-lightbox", "project-image").find(".image-clip").removeClass(".image-clip");
+      $('.carousel-control').remove();
+    }
+  });
 
 });
