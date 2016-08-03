@@ -53,7 +53,7 @@ textarea {
 
 
 img {
-  display: block; 
+  display: block;
   margin: 0 auto;
 }
 
@@ -73,7 +73,7 @@ img {
     }
 }
 
-.navbar.header { 
+.navbar.header {
 
   padding-bottom: 18px;
   padding-top: 2px;
@@ -134,7 +134,7 @@ img {
     top: 0;
     left: 0;
     height: 100%;
-    
+
         .blur-image{
           width: 120%;
           height: 120%;
@@ -155,7 +155,7 @@ img {
             left: 0;
             background-color: rgba(0,0,0,.25);
           }
-        }  
+        }
     }
 
     figure{
@@ -164,7 +164,7 @@ img {
         height: 450px;
         background-size: cover;
         background-position: center center;
-        background-repeat: no-repeat;        
+        background-repeat: no-repeat;
          img{
             height: auto;
             width: auto;
@@ -176,14 +176,14 @@ img {
             transform: translate(-50%,-50%);
             max-height: 100%;
             min-height: 290px;
-          } 
-       } 
+          }
+       }
   .col-sm-10{
     figure{
       overflow: hidden;
     }
   }
-  
+
   .clip:first-child{
      margin-right: 10px;
   }
@@ -196,7 +196,7 @@ img {
     height: 450px;
     overflow: hidden;
     float: left;
-   
+
     .image-clip{
       position: absolute;
       left: 50%;
@@ -244,8 +244,8 @@ img {
   }
 }
 @media (max-width: 768px) {
-  #content-banner { 
-    .banner-text { 
+  #content-banner {
+    .banner-text {
       height: 70px;
       padding-left: 5px;
       .title {
@@ -270,7 +270,7 @@ img {
   width: 100%;
   .content-highlighted-left{
     text-align: center;
-    white-space: nowrap; 
+    white-space: nowrap;
     height: 100%;
     display: table-cell;
     float:none;
@@ -300,9 +300,9 @@ img {
 
 .news-left-sidebar{
   background-color: #6D6F71;
-  color: #FFFFFF; 
+  color: #FFFFFF;
   text-align: center;
-  white-space: nowrap; 
+  white-space: nowrap;
   height: 100%;
   display: table-cell;
   float:none;
@@ -328,7 +328,7 @@ img {
   width: 100%;
   .project-left-sidebar{
     background-color: #6D6F71;
-    color: #FFFFFF;  
+    color: #FFFFFF;
     height: 100%;
     display: table-cell;
     float:none;
@@ -453,7 +453,7 @@ img {
         padding-top: 15px;
       }
       .name,.company{
-        font-size: 16px;        
+        font-size: 16px;
       }
       .title{
         padding-top: 28px;
@@ -463,7 +463,7 @@ img {
          margin-top: 15px;
       }
 
-      
+
   }
         .link{
           width: 55px;
@@ -493,7 +493,7 @@ img {
 .project-highlighted{
   background-size:     cover;
   background-repeat:   no-repeat;
- 
+
   .project-hover{
     position: absolute;
     top: 0;
@@ -502,7 +502,7 @@ img {
     height: 100%;
     opacity: 0.9;
    .text {
-     position: absolute; 
+     position: absolute;
      top: 20px;
      left: 20px;
      .title {
@@ -518,7 +518,7 @@ img {
       text-align: left;
      }
      .description{
-      margin-top: 10px;  
+      margin-top: 10px;
       color: #000000;
       text-align: left;
      }
@@ -533,7 +533,7 @@ img {
     margin: 0;
   }
   .navbar-footer{
-    
+
   }
   .navbar-brand {
     //margin-left: 50px;
@@ -578,14 +578,14 @@ img {
    border-left: none;
 
   }
-  
+
 }
 
 .projects-header{
   background-color: #6D6F71;
   color: #FFFFFF;
   text-align: center;
-  margin: 10px 0; 
+  margin: 10px 0;
   .col-sm-7{
     padding: 0;
     margin: 0;
@@ -598,7 +598,7 @@ img {
       text-transform: uppercase;
       display: table;
       span{
-        display: table-cell;        
+        display: table-cell;
         vertical-align: middle;
       }
   }
@@ -674,7 +674,7 @@ img {
   ul.benefits{
     list-style: none;
     text-align: center;
-      
+
       padding-bottom: 5px;
     &.values{
       padding: 0;
@@ -692,9 +692,9 @@ img {
         &:last-child{
           border: none;
         }
-        
+
       }
-     
+
     }
     li{
       display: inline;
@@ -735,16 +735,16 @@ i.fa-play {
       color: #CCC;
       margin: 0;
       float: left;
-    }  
+    }
   }
   .sub-title{
     border-bottom: 1px solid #CCC;
     padding-bottom: 10px;
     font-weight: bold;
-    margin-bottom: 20px; 
+    margin-bottom: 20px;
   }
-  
-} 
+
+}
 
 .benfits-container{
   background-color: #6D6E71;
@@ -753,7 +753,7 @@ i.fa-play {
   ul.benefits{
     list-style: none;
     text-align: center;
-      
+
       padding-bottom: 5px;
     &.values{
       padding: 0;
@@ -771,9 +771,9 @@ i.fa-play {
         &:last-child{
           border: none;
         }
-        
+
       }
-     
+
     }
     li{
       display: inline;
@@ -835,16 +835,16 @@ i.fa-play {
       color: #CCC;
       margin: 0;
       float: left;
-    }  
+    }
   }
   .sub-title{
     border-bottom: 1px solid #CCC;
     padding-bottom: 10px;
     font-weight: bold;
-    margin-bottom: 20px; 
+    margin-bottom: 20px;
   }
-  
-} 
+
+}
 
 .about-us{
   margin-top: 30px;
@@ -872,7 +872,7 @@ i.fa-play {
   a:hover{
     text-decoration: none;
   }
-  
+
   .col-sm-12{
     margin-bottom: 10px;
   }
@@ -890,7 +890,7 @@ i.fa-play {
           clear: both;
           float: left;
           list-style: none;
-            li { 
+            li {
               position: relative;
               margin-bottom: 15px;
             }
@@ -970,7 +970,7 @@ p {
     .clip{
       width: 6.80%;
     }
-  } 
+  }
   .projects-header{
       .services {
         &.all{
@@ -991,7 +991,7 @@ p {
     .clip{
       width: 5.18%;
     }
-  } 
+  }
   .projects-header{
       .services {
 
@@ -1033,9 +1033,9 @@ p {
       }
     }
     .projects-header{
-      
+
       .col-sm-6{
-        
+
       }
       .service{
            span{
@@ -1051,7 +1051,7 @@ p {
         &.state{
           >li {
             padding-right: 0px;
-            
+
           }
         }
         >li {
@@ -1075,7 +1075,7 @@ p {
     }
 }
 @media (min-width: 767px) and (max-width: 793px){
-  .projects-header{ 
+  .projects-header{
    .services {
       &.filter{
         >li {
@@ -1083,16 +1083,16 @@ p {
             font-size: 10px;
           }
         }
-      } 
-    } 
-  } 
+      }
+    }
+  }
 }
 @media (max-width: 767px) {
   #content-project-image{
     .clip{
       display: none;
     }
-  } 
+  }
   .project-detail{
     display: block;
     .project-left-sidebar{
@@ -1102,7 +1102,7 @@ p {
       }
       label{
         font-size: 12px;
-      }      
+      }
     }
     .project-right-sidebar{
         display: block;
@@ -1112,7 +1112,7 @@ p {
           }
         }
       }
-    }  
+    }
      #content-banner{
        //display: none;
       }
@@ -1138,17 +1138,17 @@ p {
         .col-sm-3{
            text-align: center;
            margin-right: 15px;
-         }  
+         }
          img{
             margin: 0 auto;
-          }   
+          }
       }
 
   .benfits-container{
       ul.benefits{
         li{
           width: 40%;
-          span{            
+          span{
             font-size: 12px;
             height: 45px;
           }
@@ -1156,14 +1156,14 @@ p {
       }
     }
 
-    .projects-header{ 
-      height: initial; 
+    .projects-header{
+      height: initial;
      .col-sm-3{
         width: initial;
       }
       .col-sm-3:first-child{
         width: initial;
-      }    
+      }
         .service{
            span{
             font-size: 14px;
@@ -1216,7 +1216,7 @@ p {
     margin: 5px;
     padding: 3px;
     .helper {
-     
+
 
     }
       img {
@@ -1231,3 +1231,26 @@ p {
     right: 0;
       }
 }
+.politics-sign{
+  float: left;
+  width: calc(50% + 180px );
+  padding: 10px;
+
+  .politics-sign-img{
+    background-image: url("../images/EO corta negra.jpg");
+    width: 180px;
+    height: 180px;
+    background-position: center;
+    background-repeat: no-repeat;
+    float: right;
+    margin-right: 90px;
+    background-size: 180px;
+  }
+  .politics-sign-aclaration{
+    float: right;
+    clear: both;
+  }
+}
+
+
+
