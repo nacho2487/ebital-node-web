@@ -1,12 +1,49 @@
 extends ../layout
 
 block content
-	#content-banner.carousel.row
-		.col-sm-12
-			.item-img-about-us
-				+showImage(company.image)
-				.about-us-image
-					.title
-						=__("WeBuildNewHorizons")
-	.container.about-us
-		+company(company)
+  #content-banner.carousel.row
+    .col-sm-12
+      .item-img-about-us
+        +showImage(company.image)
+        .about-us-image
+          .title
+            =__("WeBuildNewHorizons")
+  .container.about-us
+    .row
+      .col-sm-12
+        a.anchor(id="about-us")
+        a(href="/" + getLocale() + __("url.company").replace(":companyUrl", __('url.about-us')) + '#about-us')
+          i.fa.fa-play
+          h3.title
+            =__("AboutUs")
+    .row
+      .col-sm-12
+        a.anchor(id="team")
+        a(href="/" + getLocale() + __("url.company").replace(":companyUrl", __('url.team')) + '#team')
+          i.fa.fa-play
+          h3.title
+            =__("ExecutiveTeam")
+    .row
+      .col-sm-12
+        a.anchor(id="politics")
+        a(href="/" + getLocale() + __("url.company").replace(":companyUrl", __('url.politics')) + '#politics')
+          i.fa.fa-play
+          h3.title(class="active")
+            =__("PoliticsAndCertificatios")
+          .text
+            .politcs-img
+              img(src="/images/politics-calidad.jpg" width="100%")
+            .politcs-img
+              img(src="/images/politics-seguridad.jpg" width="100%")
+    .row
+      .col-sm-12
+        a(href="/" + getLocale() + __("url.company").replace(":companyUrl", __('url.benefits')))
+          i.fa.fa-play
+          h3.title
+            =__("Benefits")
+    .row
+      .col-sm-12
+        a(href="/" + getLocale() + __("url.company").replace(":companyUrl", __('url.values')))
+          i.fa.fa-play
+          h3.title
+            =__("Values")
