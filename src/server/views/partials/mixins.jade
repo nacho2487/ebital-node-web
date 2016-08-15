@@ -33,27 +33,15 @@ mixin showProjects(projects, size)
 									.sub-title=project.service && project.title[getLocale()]
 									.description
 										if project.client
-											label #{__n("Client", 1)}:&nbsp
-											span=project.client
-											br
+											p #{__n("Client", 1)}: #{project.client}
 										if project.location
-											label #{__("Location")}:&nbsp
-											span=project.location
-											br
+											p #{__("Location")}: #{project.location}
 										if project.area[getLocale()]
-											label #{__("Area")}:&nbsp
-											span=project.area[getLocale()]
-											br
+											p #{__("Area")}: #{project.area[getLocale()]}
 										if project.dateStart && project.dateStart.month && project.dateStart.year
-											label #{__("StartDate")}:&nbsp
-											span #{__(project.dateStart.month)}&nbsp
-											span=project.dateStart.year
-											br
+											p #{__("StartDate")}: #{__(project.dateStart.month)} #{project.dateStart.year}
 										if project.dateEnd && project.dateEnd.month && project.dateEnd.year
-											label #{__("EndDate")}:&nbsp
-											span  #{__(project.dateEnd.month)}&nbsp
-											span=project.dateEnd.year
-											br
+											p #{__("EndDate")}: #{__(project.dateEnd.month)} #{project.dateEnd.year}
 
 mixin projectHeader(service, services, state, showInProgress, showFinished)
 	.col-sm-12.projects-header
@@ -85,11 +73,11 @@ mixin projectHeader(service, services, state, showInProgress, showFinished)
 
 mixin showImage(image, height)
 	- var imageId = image.filename + '.' + image.fileext;
-	img.img-project.col-sm-12(data-src="<300:#{cloudinary.url(imageId, {width: 300})},<480:#{cloudinary.url(imageId, {width: 480})},<580:#{cloudinary.url(imageId, {width: 580})},<768:#{cloudinary.url(imageId, {width: 768})},>768:#{cloudinary.url(imageId, {width: 1296})}", height=height)
+	img.img-project.col-sm-12(height=height src="#{cloudinary.url(imageId, {quality: 'jpegmini', sign_url: true})}")
 
 mixin showThumbImage(image, size)
 	- var imageId = image.filename + '.' + image.fileext;
-	img.img-project.col-sm-12(data-src="<480:#{cloudinary.url(imageId, {width: 480})}, <768:#{cloudinary.url(imageId, {width: 768})},>768:#{cloudinary.url(imageId, {width: 480})}", height=size)
+	img.img-project.col-sm-12(height=size src="#{cloudinary.url(imageId, {quality: 'jpegmini', sign_url: true})}")
 	
 mixin company(page)
 	.row

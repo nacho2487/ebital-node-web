@@ -502,6 +502,7 @@ img {
     height: 100%;
     opacity: 0.9;
    .text {
+     width: 85%;
      position: absolute;
      top: 20px;
      left: 20px;
@@ -521,6 +522,10 @@ img {
       margin-top: 10px;
       color: #000000;
       text-align: left;
+       p{
+         margin: 5px 0;
+         text-align: left;
+       }
      }
    }
 
@@ -966,6 +971,16 @@ p {
     visibility: hidden;
 }
 @media (max-width: 1171px) {
+  .project-highlighted {
+    .project-hover {
+      .text{
+        font-size: 13px;
+        .title{
+          font-size: 18px;
+        }
+      }
+    }
+  }
   #content-project-image{
     .clip{
       width: 6.80%;
@@ -987,6 +1002,15 @@ p {
     }
 }
 @media (max-width: 1054px) {
+  .project-highlighted {
+    .project-hover {
+      .text{
+        .title{
+          font-size: 18px;
+        }
+      }
+    }
+  }
   #content-project-image{
     .clip{
       width: 5.18%;
@@ -1011,70 +1035,82 @@ p {
 }
 
 @media (max-width: 960px) {
-    .content-highlighted {
-        .content-highlighted-left {
-            height: 40px;
-            display: inherit;
+  .project-highlighted {
+    .project-hover {
+      .text{
+        font-size: 12px;
+        .title{
+          font-size: 18px;
         }
-        .content-highlighted-right{
+      }
+    }
+  }
+
+  .content-highlighted {
+      .content-highlighted-left {
+          height: 40px;
           display: inherit;
-          width: 100%;
-        }
       }
-     .benfits-container{
-      ul.benefits{
-        li{
-          width: 20%;
-          span{
-            font-size: 11px;
-            height: 40px;
-          }
+      .content-highlighted-right{
+        display: inherit;
+        width: 100%;
+      }
+    }
+   .benfits-container{
+    ul.benefits{
+      li{
+        width: 20%;
+        span{
+          font-size: 11px;
+          height: 40px;
         }
       }
     }
-    .projects-header{
+  }
+  .projects-header{
 
-      .col-sm-6{
+    .col-sm-6{
 
+    }
+    .service{
+         span{
+          font-size: 12px;
+         }
       }
-      .service{
-           span{
-            font-size: 12px;
-           }
+    .services {
+       &.all{
+        a{
+          width: 90px;
         }
-      .services {
-         &.all{
-          a{
-            width: 90px;
-          }
-        }
-        &.state{
-          >li {
-            padding-right: 0px;
-
-          }
-        }
+      }
+      &.state{
         >li {
-          padding: 0;
-          >a{
-            font-size: 11px;
-            //width: 100px;
-          }
+          padding-right: 0px;
+
+        }
+      }
+      >li {
+        padding: 0;
+        >a{
+          font-size: 11px;
+          //width: 100px;
         }
       }
     }
-    .news-highlighted .back-text .text .name{
-      padding-top: 10px;
-    }
-    .news-highlighted .back-text .text .name, .news-highlighted .back-text .text .company{
-      font-size: 12px;
-    }
-    .news-highlighted .back-text .text .description{
-      margin-top: 5px;
-      font-size: 11px;
-    }
+  }
+  .news-highlighted .back-text .text .name{
+    padding-top: 10px;
+  }
+  .news-highlighted .back-text .text .name, .news-highlighted .back-text .text .company{
+    font-size: 12px;
+  }
+  .news-highlighted .back-text .text .description{
+    margin-top: 5px;
+    font-size: 11px;
+  }
 }
 @media (min-width: 767px) and (max-width: 793px){
+
   .projects-header{
    .services {
       &.filter{
@@ -1219,8 +1255,8 @@ p {
 
 
     }
-      img {
-        max-width: 100%;
+  img {
+    max-width: 100%;
     max-height: 100%;
     margin: auto;
     display: block;
@@ -1229,7 +1265,7 @@ p {
     bottom: 0;
     left: 0;
     right: 0;
-      }
+  }
 }
 .politics-sign{
   float: left;

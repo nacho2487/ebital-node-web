@@ -4,7 +4,8 @@ block content
 	#content-banner.carousel.row
 		.col-sm-12
 			.item-img-about-us
-				+showImage(company.image)
+				- var imageId = company.image.filename + '.' + company.image.fileext;
+				img.img-project.col-sm-12(src="#{cloudinary.url(imageId)}")
 				.about-us-image
 					.title
 						=__("WeBuildNewHorizons")

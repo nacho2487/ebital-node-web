@@ -18,6 +18,7 @@ tmp
 
 # Dependency directory
 node_modules
+backup
 
 # Editors
 .idea
