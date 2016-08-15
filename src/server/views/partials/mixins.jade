@@ -77,7 +77,7 @@ mixin showImage(image, height, title)
 
 mixin showThumbImage(image, size, title)
 	- var imageId = image.filename + '.' + image.fileext;
-	img.img-project.col-sm-12(title=title, alt=title, height=size src="#{cloudinary.url(imageId, {quality: 'jpegmini', sign_url: true})}")
+	img.img-project.col-sm-12(title=title, alt=title, height=size src="#{cloudinary.url(imageId)}")
 	
 mixin company(page)
 	.row
