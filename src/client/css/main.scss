@@ -7,6 +7,9 @@
 @import "vendors/font-awesome/font-awesome";
 @import "themes/default/default";
 
+@import "vendors/back-to-top.css";
+@import "vendors/lightbox.min.css";
+
 // Scaffolding
 // -------------------------
 html, body {
@@ -1295,5 +1298,11 @@ p {
   margin: 10px;
 }
 
+.hide-title{
+  visibility: hidden;
+  margin: 0;
+  line-height: 0;
+  font-size: 0;
+}
 
 

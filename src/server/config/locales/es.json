@@ -167,5 +167,7 @@
 	"ContactCannotBeBlank": "El contacto es requerido",
 	"MessageCannotBeBlank": "El mensaje es requerido",
 	"EmailIsNotValid": "El email es incorrecto",
-	"EmailSentCorrectly": "¡Mensaje enviado correctamente!"
+	"EmailSentCorrectly": "¡Mensaje enviado correctamente!",
+		"HomeTitle": "Ingeniería y Construcción de grandes proyectos",
+	"Description": "Construimos, gerenciamos y desarrollamos grandes proyectos de Ingeniería y Construcción"
 }

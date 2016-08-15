@@ -18,6 +18,13 @@ var sass = require('node-sass-middleware');
 var passportConf = require('./src/server/helpers/passport');
 var i18n = require('i18n');
 var cloudinary = require('cloudinary');
+var UglifyJS = require("uglify-js");
+var fs = require("fs");
+
+var result = UglifyJS.minify(['./src/client/js/lib/jquery.min.js', './src/client/js/lib/bootstrap.min.js', './src/client/js/lib/lightbox.min.js', './src/client/js/main.js']);
+
+fs.writeFileSync('./src/client/js/main.min.js', result.code);
+
 dotenv.load({ path: '.env' });
 var app = express();
 i18n.configure({
@@ -26,6 +33,7 @@ i18n.configure({
 	defaultLocale: 'es',
 	queryParameter: 'lang'
 });
+
 var routes = require('./src/server/routes/index')(i18n);
 var admin = require('./src/server/routes/admin/index')();
 var user = require('./src/server/routes/user');

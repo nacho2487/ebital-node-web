@@ -26,7 +26,7 @@ mixin showProjects(projects, size)
 					- var project = projects[i];
 					.project-highlighted.col-sm-3
 						a(href=getUrl(__("url.project").replace(":projectUrl", project.url[getLocale()])))
-							+showThumbImage(project.homeImage, size)
+							+showThumbImage(project.homeImage, size, project.title[getLocale()])
 							.project-hover.hide(style="background-color: #{project.service && project.service.color}")
 								.text
 									.title=project.service && project.service.title[getLocale()]
@@ -71,13 +71,13 @@ mixin projectHeader(service, services, state, showInProgress, showFinished)
 							a(class=state=="in-progress"?"active": "",href="/" + getLocale() +__("url.projectsByService").replace(":serviceUrl", service.url[getLocale()]).replace(":state?", "in-progress"))
 								=__("InProgressProjects")
 
-mixin showImage(image, height)
+mixin showImage(image, height, title)
 	- var imageId = image.filename + '.' + image.fileext;
-	img.img-project.col-sm-12(height=height src="#{cloudinary.url(imageId, {quality: 'jpegmini', sign_url: true})}")
+	img.img-project.col-sm-12(title=title, alt=title, height=height src="#{cloudinary.url(imageId, {quality: 'jpegmini', sign_url: true})}")
 
-mixin showThumbImage(image, size)
+mixin showThumbImage(image, size, title)
 	- var imageId = image.filename + '.' + image.fileext;
-	img.img-project.col-sm-12(height=size src="#{cloudinary.url(imageId, {quality: 'jpegmini', sign_url: true})}")
+	img.img-project.col-sm-12(title=title, alt=title, height=size src="#{cloudinary.url(imageId, {quality: 'jpegmini', sign_url: true})}")
 	
 mixin company(page)
 	.row

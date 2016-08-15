@@ -17,7 +17,7 @@ var homeController = function(Home, Project) {
 						return next(err);
 					}
 					res.render('home', {
-						title: req.__('Home'),
+						title: req.__('HomeTitle'),
 						banners: home.images,
 						description: home.description[req.getLocale()],
 						projects: projects,

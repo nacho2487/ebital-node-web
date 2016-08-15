@@ -5,7 +5,7 @@ block content
 		.carousel-inner(role='listbox')
 			- each banner, i in banners
 				.item(class=i===0?"active":"")
-					+showImage(banner.image, "")
+					+showImage(banner.image, "", banner.title[getLocale()])
 					.banner-text
 						.title.col-sm-5.col-sm-offset-2
 							=banner.title[getLocale()]
