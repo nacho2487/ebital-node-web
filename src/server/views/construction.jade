@@ -1,0 +1,64 @@
+doctype html
+html
+    head
+        meta(charset='utf-8')
+        meta(http-equiv='X-UA-Compatible', content='IE=edge')
+        meta(name='viewport', content='width=device-width, initial-scale=1.0')
+        meta(name='description', content='#{__("Description")}')
+        meta(name='keywords', content='Ebital, Construcció, Ingeniería, Gerencia, Uruguay, ')
+        meta(name='csrf-token', content=_csrf)
+        title #{title} - Ebital
+        link(rel='stylesheet', href='/css/main.css')
+    body
+        #navbar-construction.navbar.navbar-default.header
+            .lang.pull-right
+                a(href="#{url.es}", title=__("Spanish"))
+                    | #{__("Spanish")}
+                a(href="#{url.en}", title=__("English"))
+                    =__("English")
+
+            .container.row
+                .col-sm-7
+                    .row.col-sm-12.text-center
+                        .navbar-header
+                            button.navbar-toggle(type='button', data-toggle='collapse', data-target='.navbar-collapse')
+                                span.sr-only Toggle navigation
+                                span.icon-bar
+                                span.icon-bar
+                                span.icon-bar
+                            a.navbar-brand(href=__('url.home'))
+                                h1.hide-title Ebital - Ingeniería y Construcción de grandes proyectos
+                                img(src="/images/logo.png" height="70px", alt="Logo", title="Ebital")
+
+        #content-construction.carousel.row
+            .col-sm-12
+                .item-img-about-us
+                    img.img-about-us(src="/images/contacto.jpg")
+                    .about-us-image
+                        .title
+                            | Página en construcción
+
+        .footer-construction
+                .row
+                    .col-sm-12
+                        span EBITAL ® / Piedras 425 / C.P. 11000 / Telefax.: (+598) 2914 6400 / Montevideo - Uruguay / www.ebital.com.uy
+
+        script(src='/js/main.min.js')
+
+        // Google Analytics: change UA-XXXXX-X to be your site's ID
+        script.
+            (function (i, s, o, g, r, a, m) {
+                i['GoogleAnalyticsObject'] = r;
+                i[r] = i[r] || function () {
+                            (i[r].q = i[r].q || []).push(arguments)
+                        }, i[r].l = 1 * new Date();
+                a = s.createElement(o),
+                        m = s.getElementsByTagName(o)[0];
+                a.async = 1;
+                a.src = g;
+                m.parentNode.insertBefore(a, m)
+            })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+            ga('create', 'UA-15653665-11', 'auto');
+            ga('send', 'pageview');
+

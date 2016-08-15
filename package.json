@@ -7,7 +7,7 @@
   },
   "scripts": {
     "start": "node app",
-    "start:watch": "nodemon app",
+    "watch": "nodemon app --ignore '*.min.js'",
     "test": "mocha ./src/server/test/ --reporter spec --timeout 15000 --recursive",
     "lint": "eslint src/server/"
   },

@@ -214,7 +214,7 @@ img {
   }
 
 }
-#content-banner, #content-project-image, .item-img-about-us  {
+#content-construction, #content-banner, #content-project-image, .item-img-about-us  {
   .fa-chevron-left, .fa-chevron-right {
     position: absolute;
     top: 50%;
@@ -522,11 +522,11 @@ img {
       text-align: left;
      }
      .description{
-      margin-top: 10px;
+      margin-top: 0;
       color: #000000;
       text-align: left;
        p{
-         margin: 5px 0;
+         margin: 2px 0;
          text-align: left;
        }
      }
@@ -1004,6 +1004,18 @@ p {
       }
     }
 }
+@media (max-width: 1250px) {
+  .project-highlighted {
+    .project-hover {
+      .text {
+        .title {
+          font-size: 21px;
+        }
+      }
+    }
+  }
+}
+
 @media (max-width: 1054px) {
   .project-highlighted {
     .project-hover {
@@ -1305,4 +1317,20 @@ p {
   font-size: 0;
 }
 
-
+#navbar-construction{
+  .navbar-header{
+    float: right;
+  }
+}
+#content-construction{
+  .about-us-image {
+    top: 20%;
+    left: 37%;
+  }
+}
+.footer-construction{
+  margin: 0;
+  width: 100%;
+  text-align: center;
+  color: gray;
+}

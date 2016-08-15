@@ -1,5 +1,15 @@
 
 var homeController = function(Home, Project) {
+	var construction = function (req, res, next){
+		res.render('construction', {
+			title: req.__('HomeTitle'),
+			url: {
+				es: '/',
+				en: '/en'
+			}
+		});
+	};
+
 	var index = function(req, res, next) {
 		Home
 			.findOne()
@@ -32,7 +42,8 @@ var homeController = function(Home, Project) {
 	};
 
 	return {
-		index
+		index,
+		construction
 	};
 };
 
