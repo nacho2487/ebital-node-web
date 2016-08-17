@@ -116,6 +116,7 @@
 	"url.newsDetail": "/noticia/:newsUrl",
 	"url.contactus": "/contacto",
 	"url.clients": "/clientes",
+	"url.workwithus": "/sumate-al-equipo",
 	"url.home": "/",
 	"url.about-us": "quienes-somos",
 	"url.team": "equipo-ejecutivo",
@@ -168,6 +169,7 @@
 	"MessageCannotBeBlank": "El mensaje es requerido",
 	"EmailIsNotValid": "El email es incorrecto",
 	"EmailSentCorrectly": "¡Mensaje enviado correctamente!",
-		"HomeTitle": "Ingeniería y Construcción de grandes proyectos",
-	"Description": "Construimos, gerenciamos y desarrollamos grandes proyectos de Ingeniería y Construcción"
+	"HomeTitle": "Ingeniería y Construcción de grandes proyectos",
+	"Description": "Construimos, gerenciamos y desarrollamos grandes proyectos de Ingeniería y Construcción",
+	"WorkWithUs": "Sumate al equipo"
 }

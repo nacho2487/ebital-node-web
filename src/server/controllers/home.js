@@ -10,6 +10,16 @@ var homeController = function(Home, Project) {
 		});
 	};
 
+	var workWithUs = function (req, res, next){
+		res.render('workwithus', {
+			title: req.__('WorkWithUs'),
+			url: {
+				es: req.__l('url.workwithus')[1],
+				en: `/en/${req.__l('url.workwithus')[0]}`
+			}
+		});
+	};
+
 	var index = function(req, res, next) {
 		Home
 			.findOne()
@@ -43,7 +53,8 @@ var homeController = function(Home, Project) {
 
 	return {
 		index,
-		construction
+		construction,
+		workWithUs
 	};
 };
 

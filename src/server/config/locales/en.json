@@ -129,6 +129,7 @@
 	"url.politics": "politics-and-certifications",
 	"url.benefits": "benefits",
 	"url.values": "values",
+	"url.workwithus": "/work-with-us",
 	"TeamWork": "Team work",
 	"Commitment": "Commitment",
 	"Respect": "Respect",
@@ -169,5 +170,6 @@
 	"Logos": "Logos",
 	"Link": "Link",
 	"HomeTitle": "Ingeniería y Construcción de grandes proyectos",
-	"Description": "Construimos, gerenciamos y desarrollamos grandes proyectos de Ingeniería y Construcción"
+	"Description": "Construimos, gerenciamos y desarrollamos grandes proyectos de Ingeniería y Construcción",
+	"WorkWithUs": "Work with us"
 }

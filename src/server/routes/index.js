@@ -26,6 +26,7 @@ var routes = function(i18n) {
 	router.get(i18n.__l('url.newsDetail'), newsController.details);
 	router.get(i18n.__l('url.clients'), clientsController.index);
 	router.get('/construccion', homeController.construction);
+	router.get(i18n.__l('url.workwithus'), homeController.workWithUs);
 	router.get(i18n.__l('url.contactus'), contactController.getContact);
 	router.post(i18n.__l('url.contactus'), contactController.postContact);
 
