@@ -73,7 +73,7 @@ mixin projectHeader(service, services, state, showInProgress, showFinished)
 
 mixin showImage(image, height, title)
 	- var imageId = image.filename + '.' + image.fileext;
-	img.img-project.col-sm-12(title=title, alt=title, height=height src="#{cloudinary.url(imageId, {quality: 'jpegmini', sign_url: true})}")
+	img.img-project.col-sm-12(title=title, alt=title, height=height src="#{cloudinary.url(imageId)}")
 
 mixin showThumbImage(image, size, title)
 	- var imageId = image.filename + '.' + image.fileext;
