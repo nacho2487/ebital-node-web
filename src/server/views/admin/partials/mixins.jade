@@ -39,7 +39,7 @@ mixin addImagesField(label, type, images, id, url)
 				.images-container.row
 					for image in images
 						.image-field.col-sm-3
-							a.select-image.thumbnail(href=image.url, data-lightbox=type) !{cloudinary.image(image.filename + "." + image.fileext, {quality: "jpegmini", height: 100, width: 150, crop: "thumb", sign_url: true})}
+							a.select-image.thumbnail(href=image.url, data-lightbox=type) !{cloudinary.image(image.filename + "." + image.fileext, { height: 100, width: 150, crop: "thumb"})}
 							a.remove-image.col-sm-12.text-center(href='#', imageFileName='#{image.filename}', data-id='#{id}', data-url=url)=__('Remove')
 			.images-new-container.row
 			.images-toolbar.row
@@ -68,7 +68,7 @@ mixin addSingleImageField(type, image, label)
 mixin showImage(image, type)
 	if image && image.filename
 		.image-field
-			a.select-image.thumbnail(href=image.url, data-lightbox=type) !{cloudinary.image(image.filename + "." + image.fileext, {quality: "jpegmini", height: 100, width: 150, crop: "thumb", sign_url: true})}
+			a.select-image.thumbnail(href=image.url, data-lightbox=type) !{cloudinary.image(image.filename + "." + image.fileext, { height: 100, width: 150, crop: "thumb"})}
 
 mixin publishField(published)
 	label.col-sm-3.control-label(for='publish')=__("Publish") 
