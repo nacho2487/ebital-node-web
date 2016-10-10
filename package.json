@@ -23,6 +23,7 @@
     "errorhandler": "^1.4.3",
     "express": "^4.13.4",
     "express-flash": "^0.0.2",
+    "express-recaptcha": "^2.1.0",
     "express-session": "^1.13.0",
     "express-validator": "^2.19.0",
     "i18n": "^0.7.0",
