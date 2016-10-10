@@ -45,8 +45,7 @@ block content
 					label(for='message') #{__("Message")}:*  
 					textarea.form-control(type='text', name='message', id='message', rows='7')
 						=message
-				.form-group
-					!{captcha}
+				.form-group !{captcha}
 				.form-group
 						button.pull-right.btn(type='submit')
 							=__("Send")

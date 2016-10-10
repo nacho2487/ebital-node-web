@@ -19,7 +19,7 @@ exports.getContact = function(req, res) {
 };
 
 function resContact(req, res){
-	res.render('contact', {
+	return res.render('contact', {
 		title: req.__('ContactUs'),
 		url: {
 			es: req.__l('url.contactus')[1],
@@ -49,7 +49,7 @@ exports.postContact = function(req, res) {
 	var errors = req.validationErrors();
 	if (errors) {
 		req.flash('errors', errors);
-		resContact(req, res);
+		return resContact(req, res);
 	}
 	recaptcha.verify(req, function(error) {
 		if (!error) {
@@ -110,11 +110,11 @@ exports.postContact = function(req, res) {
 					return res.redirect('/' + req.getLocale() + req.__('url.contactus'));
 				}
 				req.flash('success', {msg: req.__('EmailSentCorrectly')});
-				res.redirect('/' + req.getLocale() + req.__('url.contactus'));
+				return res.redirect('/' + req.getLocale() + req.__('url.contactus'));
 			});
 		} else {
 			req.flash('errors', 'El texto de la imagen es incorrecto');
-			resContact(req, res);
+			return resContact(req, res);
 		}
 		//error code
 	});

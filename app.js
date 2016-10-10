@@ -20,8 +20,6 @@ var i18n = require('i18n');
 var cloudinary = require('cloudinary');
 var UglifyJS = require("uglify-js");
 var fs = require("fs");
-var recaptcha = require('express-recaptcha');
-recaptcha.init('6LdpyggUAAAAAOG7gcK_9ttgB2kfPwiGLBuJNu4s', '6LdpyggUAAAAACJwhPECdZD3tcCnHdnJ5-79qdK9');
 
 
 var result = UglifyJS.minify(['./src/client/js/lib/jquery.min.js', './src/client/js/lib/bootstrap.min.js', './src/client/js/lib/lightbox.min.js', './src/client/js/main.js']);
