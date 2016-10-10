@@ -4,10 +4,8 @@ var clientsController = function(Client, CompanyLogo) {
 
 	var index = co.wrap(function* (req, res, next) {
 		try{
-			var [clients, logos] = yield Promise.all([
-				Client.find({publish: true}).sort('position'),
-				CompanyLogo.find({publish: true}).sort('position')
-			]);
+			var clients = yield Client.find({publish: true}).sort('position');
+			var logos = yield CompanyLogo.find({publish: true}).sort('position');
 			res.render('clients', {
 				title: req.__n('Client', 2),
 				url: {

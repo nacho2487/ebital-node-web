@@ -105,11 +105,11 @@ var homeController = function(Home, Project) {
 	};
 
 	return {
-		index,
-		saveDescription,
-		addAllProjects,
-		addBanner,
-		removeBanner
+		index:index,
+		saveDescription:saveDescription,
+		addAllProjects:addAllProjects,
+		addBanner:addBanner,
+		removeBanner:removeBanner
 	};
 };
 

@@ -4,10 +4,8 @@ var projectController = function(Project, Service) {
 
 	var index =  co.wrap(function* (req, res, next) {
 		try{
-			var [services, projects] =  yield Promise.all([
-				Service.find().sort('position'),
-				Project.find({publish: true}).sort('position').populate('service')
-			]);
+			var services =  yield Service.find().sort('position');
+			var projects = yield Project.find({publish: true}).sort('position').populate('service');
 
 			res.render('project/all', {
 				title: req.__n('Project', 2),
@@ -40,11 +38,10 @@ var projectController = function(Project, Service) {
 				state = req.params.state;
 				queryProject['state'] = state;
 			}
-			var [services, projects, showInProgress, showFinished] = yield Promise.all([
-				Service.find({_id: { $ne: service._id }}).sort('position'),
-				Project.find(queryProject).populate('service').sort('position'),
-				showState(service, 'in-progress'),
-				showState(service, 'finished')]);
+			var services = yield Service.find({_id: { $ne: service._id }}).sort('position');
+			var projects = yield Project.find(queryProject).populate('service').sort('position');
+			var showInProgress = yield showState(service, 'in-progress');
+			var showFinished = yield showState(service, 'finished');
 
 			res.render('project/service', {
 				title: service.title[req.getLocale()],
@@ -74,19 +71,16 @@ var projectController = function(Project, Service) {
 			if(!project){
 				return next();
 			}
-			var [projectNextUrl, projectPrevUrl] = yield Promise.all([
-				getProjectFromPosition(project.position + 1),
-				getProjectFromPosition(project.position - 1)
-			]);
+			var projectNextUrl = yield getProjectFromPosition(project.position + 1);
+			var projectPrevUrl = yield getProjectFromPosition(project.position - 1);
+
 			var showInProgress = true;
 			var showFinished = true;
 			var services = [];
 			if(project.service){
-				[showInProgress, showFinished, services] = yield Promise.all([
-					showState(project.service, 'in-progress'),
-					showState(project.service, 'finished'),
-					Service.find({_id: { $ne: project.service._id }}).sort('position')
-				]);
+				showInProgress  = yield showState(project.service, 'in-progress');
+				showFinished  = yield showState(project.service, 'finished');
+				services = yield Service.find({_id: { $ne: project.service._id }}).sort('position');
 			}
 
 			res.render('project/detail', {
@@ -137,9 +131,9 @@ var projectController = function(Project, Service) {
 	}
 
 	return {
-		index,
-		filterByService,
-		details
+		index:index,
+		filterByService:filterByService,
+		details:details
 	};
 };
 

@@ -164,17 +164,17 @@ var baseController = function(Model, url, modelKey) {
 
 
 	return {
-		get,
-		getById,
-		post,
-		put,
-		remove,
-		updatePosition,
-		updateAllPositions,
-		addSingleImage,
-		removeSingleImage,
-		addMultipleImages,
-		removeMultipleImages
+		get: get,
+		getById: getById,
+		post: post,
+		put:put,
+		remove: remove,
+		updatePosition: updatePosition,
+		updateAllPositions: updateAllPositions,
+		addSingleImage: addSingleImage,
+		removeSingleImage: removeSingleImage,
+		addMultipleImages: addMultipleImages,
+		removeMultipleImages: removeMultipleImages
 	};
 };
 

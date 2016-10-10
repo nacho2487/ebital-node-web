@@ -77,12 +77,12 @@ var companyLogoController = function(CompanyLogo) {
 	});
 
 	return {
-		add,
-		edit,
-		save,
-		update,
-		remove,
-		updatePosition
+		add:add,
+		edit:edit,
+		save:save,
+		update:update,
+		remove:remove,
+		updatePosition:updatePosition
 	};
 };
 

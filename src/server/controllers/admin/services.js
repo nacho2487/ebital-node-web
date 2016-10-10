@@ -67,13 +67,13 @@ var servicesController = function(Service) {
 	});
 
 	return {
-		list,
-		add,
-		edit,
-		save,
-		update,
-		remove,
-		updatePosition
+		list:list,
+		add:add,
+		edit:edit,
+		save:save,
+		update:update,
+		remove:remove,
+		updatePosition:updatePosition
 	};
 };
 

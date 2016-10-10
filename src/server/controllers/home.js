@@ -52,9 +52,9 @@ var homeController = function(Home, Project) {
 	};
 
 	return {
-		index,
-		construction,
-		workWithUs
+		index:index,
+		construction:construction,
+		workWithUs:workWithUs
 	};
 };
 

@@ -44,8 +44,8 @@ var newsController = function(News) {
 	});
 
 	return {
-		index,
-		details
+		index:index,
+		details:details
 	};
 };
 

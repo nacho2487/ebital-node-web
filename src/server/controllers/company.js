@@ -25,7 +25,7 @@ var companyController = function(Company) {
 	};
 
 	return {
-		index
+		index:index
 	};
 };
 

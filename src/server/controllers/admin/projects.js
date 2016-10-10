@@ -189,16 +189,16 @@ var projectController = function(Project, Service) {
 
 
 	return {
-		list,
-		add,
-		edit,
-		save,
-		update,
-		remove,
-		removeImageFromList,
-		updatePosition,
-		updateHighlight,
-		updateHighlightGet
+		list:list,
+		add:add,
+		edit:edit,
+		save:save,
+		update:update,
+		remove:remove,
+		removeImageFromList:removeImageFromList,
+		updatePosition:updatePosition,
+		updateHighlight:updateHighlight,
+		updateHighlightGet:updateHighlightGet
 	};
 };
 

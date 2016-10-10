@@ -67,8 +67,8 @@ var companyController = function(Company) {
 
 
 	return {
-		edit,
-		save
+		edit: edit,
+		save: save
 	};
 };
 

@@ -146,14 +146,14 @@ var newsController = function(News) {
 
 
 	return {
-		list,
-		add,
-		edit,
-		save,
-		update,
-		remove,
-		removeImageFromList,
-		updatePosition
+		list:list,
+		add:add,
+		edit:edit,
+		save:save,
+		update:update,
+		remove:remove,
+		removeImageFromList:removeImageFromList,
+		updatePosition:updatePosition
 	};
 };
 
