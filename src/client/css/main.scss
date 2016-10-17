@@ -69,7 +69,7 @@ img {
 }
 
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
     .affix {
         position: static;
     }
@@ -87,12 +87,20 @@ img {
 
 .navbar-default {
   &.header {
-    .navbar-nav{
-      >li{
-        >a{
+    .navbar-nav {
+      > li {
+        > a {
           font-weight: bold;
           padding: 40px 10px 0 10px;
+          @media (max-width: 767px) {
+            padding: 10px 20px;
+            text-align: right;
+          }
+          @media (min-width: 768px) and (max-width: 848px) {
+            padding: 27px 10px 0 10px;
+          }
         }
+
       }
     }
   }
@@ -337,6 +345,9 @@ img {
     .static-text.affix{
       top: 0;
       width: 25%;
+      @media (max-width: 767px) {
+        width: 100%;
+      }
     }
     .text{
       padding: 20px 20px;
@@ -701,6 +712,11 @@ img {
         float: none;
         padding-right: 10px;
         padding-left: 10px;
+        @media (max-width: 768px) {
+          font-size:10px;
+          padding-right: 5px;
+          padding-left: 5px;
+        }
         &:last-child{
           border: none;
         }
@@ -757,53 +773,6 @@ i.fa-play {
   }
 
 }
-
-.benfits-container{
-  background-color: #6D6E71;
-  color: #FFF;
-  float: left;
-  ul.benefits{
-    list-style: none;
-    text-align: center;
-
-      padding-bottom: 5px;
-    &.values{
-      padding: 0;
-      margin-bottom: 0;
-      display: table-row;
-      li{
-        display: table-cell;
-        height: 100px;
-        border-right: 1px solid #FFF;
-        vertical-align: middle;
-        text-transform: uppercase;
-        float: none;
-        padding-right: 10px;
-        padding-left: 10px;
-        &:last-child{
-          border: none;
-        }
-
-      }
-
-    }
-    li{
-      display: inline;
-      margin-right: 15px;
-      margin-top: 15px;
-      float: left;
-      width: 11%;
-      span{
-        height: 60px;
-        display: block;
-      }
-      img {
-        margin-top: 10px;
-      }
-    }
-  }
-}
-
 
 
 i.fa-play {
@@ -1175,9 +1144,11 @@ p {
         .container{
           //float: left;
         }
-        .navbar-toggle{
-          margin-top: 25px;
-          margin-bottom: 0;
+          .navbar-toggle {
+            margin-bottom: 0;
+            @media (min-width: 767px) {
+              margin-top: 25px;
+            }
         }
       }
       .content-highlighted {
@@ -1244,6 +1215,13 @@ p {
           //padding: 21px 1px;
           a{
             font-size: 10px;
+            @media (max-width: 500px) {
+              font-size: 8px;
+            }
+            @media (max-width: 420px) {
+              font-size: 7px;
+            }
+
           }
         }
       }

@@ -171,5 +171,10 @@
 	"EmailSentCorrectly": "¡Mensaje enviado correctamente!",
 	"HomeTitle": "Ingeniería y Construcción de grandes proyectos",
 	"Description": "Construimos, gerenciamos y desarrollamos grandes proyectos de Ingeniería y Construcción",
-	"WorkWithUs": "Sumate al equipo"
+	"WorkWithUs": "Sumate al equipo",
+	"WorkWithUs-line1": "Nos caracterizamos por nuestra habilidad para organizar equipos de personas altamente calificadas, comprometidas y apasionadas, que dan lo mejor de sí en cada trabajo. Aspiramos a ser el empleador de preferencia, para lo cual atraemos y retenemos a los mejores profesionales.",
+	"WorkWithUs-line2": "",
+	"WorkWithUs-line3": "",
+	"WorkWithUs-line4": "",
+
 }

@@ -1,17 +1,18 @@
 #navbar-header.navbar.navbar-default.header
-	.lang.pull-right
-		a(href="#{url.es}", title=__("Spanish"))
-			| #{__("Spanish")}
-		a(href="#{url.en}", title=__("English"))
-			=__("English")
-
+	.pull-right
+		.lang
+			a(href="#{url.es}", title=__("Spanish"))
+				| #{__("Spanish")}
+			a(href="#{url.en}", title=__("English"))
+				=__("English")
+		button.navbar-toggle(type='button', data-toggle='collapse', data-target='.navbar-collapse')
+			span.sr-only Toggle navigation
+			span.icon-bar
+			span.icon-bar
+			span.icon-bar
 	.container
 		.navbar-header
-			button.navbar-toggle(type='button', data-toggle='collapse', data-target='.navbar-collapse')
-				span.sr-only Toggle navigation
-				span.icon-bar
-				span.icon-bar
-				span.icon-bar
+
 			a.navbar-brand(href=__('url.home'))
 				h1.hide-title Ebital - Ingeniería y Construcción de grandes proyectos
 				img(src="/images/logo.png" height="70px", alt="Logo", title="Ebital")
