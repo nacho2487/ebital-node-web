@@ -6,8 +6,10 @@ var imageModel = require('./../helpers/imageModel');
 
 var projectSchema = new mongoose.Schema({
 	title: langModel,
+	description: langModel,
 	client: String,
 	location: String,
+	locationIn: langModel,
 	area: langModel,
 	dateStart: {
 		month: String,

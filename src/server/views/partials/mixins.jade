@@ -34,8 +34,8 @@ mixin showProjects(projects, size)
 									.description
 										if project.client
 											p #{__n("Client", 1)}: #{project.client}
-										if project.location
-											p #{__("Location")}: #{project.location}
+										if project.locationIn[getLocale()]
+											p #{__("Location")}: #{project.locationIn[getLocale()]}
 										if project.area[getLocale()]
 											p #{__("Area")}: #{project.area[getLocale()]}
 										if project.dateStart && project.dateStart.month && project.dateStart.year
@@ -100,15 +100,6 @@ mixin company(page)
 				.text !{page.text[getLocale()]}
 	.row
 		.col-sm-12
-			a.anchor(id="politics")
-			a(href="/" + getLocale() + __("url.company").replace(":companyUrl", __('url.politics')) + '#politics')
-				i.fa.fa-play
-				h3.title(class="#{page.type === 'politics' ? 'active' : ''}")
-					=__("PoliticsAndCertificatios")
-			if page.type === 'politics'
-				.text !{page.text[getLocale()]}
-	.row
-		.col-sm-12
 			a(href="/" + getLocale() + __("url.company").replace(":companyUrl", __('url.benefits')))
 				i.fa.fa-play
 				h3.title(class="#{page.type === 'benefits' ? 'active' : ''}")
@@ -119,6 +110,15 @@ mixin company(page)
 				i.fa.fa-play
 				h3.title(class="#{page.type === 'values' ? 'active' : ''}")
 					=__("Values")
+	.row
+		.col-sm-12
+			a.anchor(id="politics")
+			a(href="/" + getLocale() + __("url.company").replace(":companyUrl", __('url.politics')) + '#politics')
+				i.fa.fa-play
+				h3.title(class="#{page.type === 'politics' ? 'active' : ''}")
+					=__("PoliticsAndCertificatios")
+			if page.type === 'politics'
+				.text !{page.text[getLocale()]}
 
 mixin showMultipleImages(images)
 	if images.length > 0

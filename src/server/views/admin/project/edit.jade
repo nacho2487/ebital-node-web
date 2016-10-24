@@ -24,9 +24,9 @@ block content
 			.col-sm-7
 				input.form-control(type='text', name='client', id='client', value=project.client)
 		.form-group
-			label.col-sm-3.control-label(for='location')=__("Location")
+			label.col-sm-3.control-label(for='locationIn')=__("Location")
 			.col-sm-7
-				input.form-control(type='text', name='location', id='location', value=project.location)
+				+translateTextBox('locationIn', project.locationIn)
 		.form-group
 			label.col-sm-3.control-label(for='area')=__("Area")
 			.col-sm-7

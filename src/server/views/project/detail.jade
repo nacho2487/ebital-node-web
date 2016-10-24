@@ -15,10 +15,10 @@ block content
 							br
 							span=project.client
 							br
-						if project.location
+						if project.locationIn[getLocale()]
 							label #{__("Location")}:
 							br
-							span=project.location
+							span=project.locationIn[getLocale()]
 							br
 						if project.area[getLocale()]
 							label #{__("Area")}:

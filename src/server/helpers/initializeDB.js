@@ -72,6 +72,25 @@ var addCompanyType = function(type, title, position){
 	});
 };
 
+var addProjectLocation = function(){
+	Project.find(function(err, projects){
+		projects.forEach(function(project){
+			if(project && project.location && typeof project.location === 'string' ){
+				project.locationIn.es = project.location;
+				project.locationIn.en = project.location;
+				project.save(function(err){
+					if(err){
+						throw err;
+					}
+				});
+			}
+		});
+
+
+	});
+};
+
+addProjectLocation();
 addAllBannersToHome();
 addAllHighlightedProjectsToHome();
 

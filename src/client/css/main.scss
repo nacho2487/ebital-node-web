@@ -929,6 +929,7 @@ i.fa-play {
     border-bottom: 1px solid #FFF;
     text-transform: uppercase;
     margin-bottom: 20px;
+    margin-top: 5px;
   }
   .description{
     font-size: 17px;
@@ -1227,6 +1228,30 @@ p {
       }
     }
  }
+
+@media (max-width: 520px) {
+  .projects-header {
+    .services {
+      &.all {
+        a {
+          width: 60px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 370px) {
+  .projects-header {
+    .services {
+      &.all {
+        a {
+          width: 55px;
+        }
+      }
+    }
+  }
+}
 
 .cd-top.cd-is-visible {
   /* the button becomes visible */

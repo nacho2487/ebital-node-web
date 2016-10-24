@@ -8,9 +8,10 @@ var newsController = function(News) {
 
 			res.render('news', {
 				title: req.__n('News', 2),
+				descriptionMeta: req.__('NewsDescriptionKey'),
 				url: {
 					es: req.__l('url.news')[1],
-					en: `/en/${req.__l('url.news')[0]}`
+					en: `/en${req.__l('url.news')[0]}`
 				},
 				link: req.__n('News', 2),
 				news: news
@@ -31,9 +32,10 @@ var newsController = function(News) {
 			}
 			res.render('newsDetail', {
 				title: req.__n('News', 2),
+				descriptionMeta: req.__('NewsDescriptionKey'),
 				url: {
 					es: req.__l('url.newsDetail')[1].replace(':newsUrl', news.url.es),
-					en: `/en/${req.__l('url.newsDetail')[0].replace(':newsUrl', news.url.en)}`
+					en: `/en${req.__l('url.newsDetail')[0].replace(':newsUrl', news.url.en)}`
 				},
 				link: req.__n('News', 2),
 				news: news

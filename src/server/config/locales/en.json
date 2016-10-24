@@ -170,10 +170,18 @@
 	"Logos": "Logos",
 	"Link": "Link",
 	"HomeTitle": "Ingeniería y Construcción de grandes proyectos",
-	"Description": "Construimos, gerenciamos y desarrollamos grandes proyectos de Ingeniería y Construcción",
+	"HomeDescriptionKey": "We specialize in the construction, management and development of large-scale projects. Our challenge is to turn our clients’ projects into a reality. To that end, we have introduced the latest technology, processes and machinery available, which gives our clients the certainty that they will receive high quality and efficiency even in the most demanding projects.",
 	"WorkWithUs": "Work with us",
 	"WorkWithUs-line1": "We are known for our ability to organize teams of highly skilled, committed and passionate, who give their best in every job. We aim to be the employer of choice, for which we attract and retain the best professionals.",
-	"WorkWithUs-line2": "",
-	"WorkWithUs-line3": "",
-	"WorkWithUs-line4": ""
+	"WorkWithUs-line2": "We implement ongoing training programs, with the aim of developing our employees professionally and personally. We are convinced that success is accompanied by a positive work climate and that is why we carry out organizational climate surveys annually.",
+	"WorkWithUs-line3": "We give special importance to security in the works. We have specialized in accident prevention and train staff people continuously in these aspects. To this comprehensive planning of activities and project tasks and permanent monitoring of key indicators adds, allowing act in a timely manner and minimize accidents.",
+	"WorkWithUs-line4": "SSend us your resume to be part of EBITAL",
+	"WorkWithUsDescriptionKey": "Send us your resume to be part of EBITAL.",
+	"ContactUsDescriptionKey": "Piedras 425, Phone: (+598) 2914 6400, Montevideo - Uruguay - Send us a message comercial@ebital.com.uy",
+	"NewsDescriptionKey": "All of our news",
+	"CompanyDescriptionKey": "We specialize in the construction, management and development of large-scale projects. Our challenge is to turn our clients’ projects into a reality. To that end, we have introduced the latest technology, processes and machinery available, which gives our clients the certainty that they will receive high quality and efficiency even in the most demanding projects.",
+	"ClientsDescriptionKey": "All of our clients with his comments and opinions",
+	"ProjectsDescriptionKey": "All of our projects. Project of Architecture, Energy , Engineering, Urban Infraestructure, Telecommunications and Project Development",
+	"CapitalHuman": "Human Capital",
+	"SendUsResume": "Send us your resume"
 }

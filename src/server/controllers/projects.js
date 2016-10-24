@@ -9,9 +9,10 @@ var projectController = function(Project, Service) {
 
 			res.render('project/all', {
 				title: req.__n('Project', 2),
+				descriptionMeta: req.__('ProjectsDescriptionKey'),
 				url: {
 					es: req.__l('url.projects')[1],
-					en: `/en/${req.__l('url.projects')[0]}`
+					en: `/en${req.__l('url.projects')[0]}`
 				},
 				services: services,
 				projects: projects,
@@ -45,9 +46,10 @@ var projectController = function(Project, Service) {
 
 			res.render('project/service', {
 				title: service.title[req.getLocale()],
+				descriptionMeta: req.__('ProjectsDescriptionKey'),
 				url: {
 					es: req.__l('url.projectsByService')[1].replace(':serviceUrl', service.url.es).replace(':state?', state),
-					en: `/en/${req.__l('url.projectsByService')[0].replace(':serviceUrl', service.url.en).replace(':state?', state)}`
+					en: `/en${req.__l('url.projectsByService')[0].replace(':serviceUrl', service.url.en).replace(':state?', state)}`
 				},
 				service: service,
 				services: services,
@@ -85,6 +87,7 @@ var projectController = function(Project, Service) {
 
 			res.render('project/detail', {
 				title: project.title[req.getLocale()],
+				descriptionMeta: req.__('ProjectsDescriptionKey'),
 				url: {
 					es: req.__l('url.project')[1].replace(':projectUrl', project.url.es),
 					en: `/en/${req.__l('url.project')[0].replace(':projectUrl', project.url.en)}`

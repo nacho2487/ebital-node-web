@@ -21,9 +21,10 @@ exports.getContact = function(req, res) {
 function resContact(req, res){
 	return res.render('contact', {
 		title: req.__('ContactUs'),
+		descriptionMeta: req.__('ContactUsDescriptionKey'),
 		url: {
 			es: req.__l('url.contactus')[1],
-			en: `/en/${req.__l('url.contactus')[0]}`
+			en: `/en${req.__l('url.contactus')[0]}`
 		},
 		link: req.__('ContactUs'),
 		captcha: recaptcha.render(),
