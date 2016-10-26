@@ -2,13 +2,13 @@ var co = require('co');
 var _ = require('lodash');
 var projectState = require('./../../helpers/projectState');
 var date = require('./../../helpers/date');
-var homeController = require('./home');
+
 var REDIRECT_URL = 'admin/projects';
 
-var projectController = function(Project, Service) {
+var projectController = function(Project, Service, Home) {
 	var baseController = require('./base')(Project, REDIRECT_URL, 'Project');
 	var baseServiceController = require('./base')(Service, REDIRECT_URL, 'Service');
-
+	var homeController = require('./home')(Home, Project);
 	var list = co.wrap(function* (req, res, next){
 		try {
 			var projects  = yield baseController.get();
@@ -148,8 +148,8 @@ var projectController = function(Project, Service) {
 	var updateHighlight = co.wrap(function* (req, res, next) {
 		try {
 			var project = yield highlightProject(req.params.id, req.params.highlight);
-			var highlightedProjects = yield Project.find({highlight: true}).exec();
-			yield homeController.addAllProjects(highlightedProjects);
+			var highlightedProjects = yield Project.find({highlighted: true}).exec();
+			var projects = yield homeController.addAllProjects(highlightedProjects);
 			res.status(201).send(project);
 		} catch(err){
 			return next(err);
@@ -158,9 +158,9 @@ var projectController = function(Project, Service) {
 
 	var updateHighlightGet = co.wrap(function* (req, res, next) {
 		try {
-			yield highlightProject(req.params.id, req.params.highlight);
-			var highlightedProjects = yield Project.find({highlight: true}).exec();
-			yield homeController.addProjects(highlightedProjects);
+			var project = yield highlightProject(req.params.id, req.params.highlight);
+			var highlightedProjects = yield Project.find({highlighted: true}).exec();
+			var projects = yield homeController.addAllProjects(highlightedProjects);
 			res.redirect(`/${req.getLocale()}/admin`);
 		} catch(err){
 			return next(err);
