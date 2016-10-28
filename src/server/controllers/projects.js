@@ -87,7 +87,7 @@ var projectController = function(Project, Service) {
 
 			res.render('project/detail', {
 				title: project.title[req.getLocale()],
-				descriptionMeta: req.__('ProjectsDescriptionKey'),
+				descriptionMeta: project.description[req.getLocale()],
 				url: {
 					es: req.__l('url.project')[1].replace(':projectUrl', project.url.es),
 					en: `/en/${req.__l('url.project')[0].replace(':projectUrl', project.url.en)}`
