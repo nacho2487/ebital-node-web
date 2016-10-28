@@ -20,9 +20,9 @@ block content
 						else
 							option(value="#{service._id}") #{service.title[getLocale()]}
 		.form-group
-			label.col-sm-3.control-label(for='client')=__n("Client", 1)
+			label.col-sm-3.control-label(for='clientIn')=__n("Client", 1)
 			.col-sm-7
-				input.form-control(type='text', name='client', id='client', value=project.client)
+				+translateTextBox('clientIn', project.clientIn)
 		.form-group
 			label.col-sm-3.control-label(for='locationIn')=__("Location")
 			.col-sm-7
@@ -67,6 +67,10 @@ block content
 							option(value="#{year}", selected="selected")=year
 						else
 							option(value="#{year}")=year
+		.form-group
+			label.col-sm-3.control-label(for='description')=__("Description")
+			.col-sm-7
+				+translateDescription('description', 5, project.description)
 		.form-group
 			label.col-sm-3.control-label(for='text')=__("Text")
 			.col-sm-7

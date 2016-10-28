@@ -8,6 +8,7 @@ var projectSchema = new mongoose.Schema({
 	title: langModel,
 	description: langModel,
 	client: String,
+	clientIn: langModel,
 	location: String,
 	locationIn: langModel,
 	area: langModel,

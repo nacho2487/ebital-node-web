@@ -32,8 +32,8 @@ mixin showProjects(projects, size)
 									.title=project.service && project.service.title[getLocale()]
 									.sub-title=project.service && project.title[getLocale()]
 									.description
-										if project.client
-											p #{__n("Client", 1)}: #{project.client}
+										if project.clientIn[getLocale()]
+											p #{__n("Client", 1)}: #{project.clientIn[getLocale()]}
 										if project.locationIn[getLocale()]
 											p #{__("Location")}: #{project.locationIn[getLocale()]}
 										if project.area[getLocale()]

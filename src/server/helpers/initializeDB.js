@@ -90,7 +90,68 @@ var addProjectLocation = function(){
 	});
 };
 
+var addProjectClientIn = function(){
+	Project.find(function(err, projects){
+		projects.forEach(function(project){
+			if(project && project.client && typeof project.client === 'string' ){
+				project.clientIn.es = project.client;
+				project.clientIn.en = project.client;
+				project.save(function(err){
+					if(err){
+						throw err;
+					}
+				});
+			}
+		});
+	});
+};
+
+var addProjectDescription = function(){
+	Project.find(function(err, projects){
+		projects.forEach(function(project){
+			if(project && project.description && !project.description.es){
+				var descriptionEs = ''
+				if(project.clientIn.es){
+					descriptionEs += `Cliente: ${project.clientIn.es}, `
+				}
+				if(project.locationIn.es){
+					descriptionEs += `Ubicación: ${project.locationIn.es}, `
+				}
+				if(project.dateStart && project.dateStart.month && project.dateStart.year){
+					descriptionEs += `Fecha de inicio: ${project.dateStart.month} ${project.dateStart.year} `
+				}
+				if(project.dateEnd && project.dateEnd.month && project.dateEnd.year){
+					descriptionEs += `Fecha de fin: ${project.dateEnd.month} ${project.dateEnd.year} `
+				}
+				var descriptionEn = ''
+				if(project.clientIn.en){
+					descriptionEn += `Client: ${project.clientIn.en}, `
+				}
+				if(project.locationIn.en){
+					descriptionEn += `Location: ${project.locationIn.en}, `
+				}
+				if(project.dateStart && project.dateStart.month && project.dateStart.year){
+					descriptionEn += `Start date: ${project.dateStart.month} ${project.dateStart.year} `
+				}
+				if(project.dateEnd && project.dateEnd.month && project.dateEnd.year){
+					descriptionEn += `End date: ${project.dateEnd.month} ${project.dateEnd.year} `
+				}
+
+				project.description.es = descriptionEs;
+				project.description.en = descriptionEn;
+				project.save(function(err){
+					if(err){
+						throw err;
+					}
+				});
+			}
+		});
+	});
+};
+
+addProjectDescription();
 addProjectLocation();
+addProjectClientIn();
 addAllBannersToHome();
 addAllHighlightedProjectsToHome();
 

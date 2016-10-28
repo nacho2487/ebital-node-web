@@ -183,5 +183,9 @@
 	"ClientsDescriptionKey": "All of our clients with his comments and opinions",
 	"ProjectsDescriptionKey": "All of our projects. Project of Architecture, Energy , Engineering, Urban Infraestructure, Telecommunications and Project Development",
 	"CapitalHuman": "Human Capital",
-	"SendUsResume": "Send us your resume"
+	"SendUsResume": "Send us your resume",
+	"Logo": {
+		"one": "Logo",
+		"other": "Logos"
+	}
 }

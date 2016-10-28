@@ -10,10 +10,10 @@ block content
 				.text
 					.title=project.title[getLocale()]
 					.description
-						if project.client
+						if project.clientIn[getLocale()]
 							label #{__n("Client", 1)}:
 							br
-							span=project.client
+							span=project.clientIn[getLocale()]
 							br
 						if project.locationIn[getLocale()]
 							label #{__("Location")}:

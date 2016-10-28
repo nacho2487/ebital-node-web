@@ -70,9 +70,9 @@
 	"UnHighlight": "UnHighlight",
 	"Comment": "Comentario",
 	"Spanish": "Español",
-	"English": "Ingles",
+	"English": "Inglés",
 	"TranslateToSpanish": "Traducir a español",
-	"TranslateToEnglish": "Traducir a ingles",
+	"TranslateToEnglish": "Traducir a inglés",
 	"UpdatedMessage %%s": {
 		"one": "%%s actualizada correctamente",
 		"other": "%%s actualizado correctamente"
