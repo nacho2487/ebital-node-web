@@ -26,6 +26,18 @@ block content
             =__("ExecutiveTeam")
     .row
       .col-sm-12
+        a(href="/" + getLocale() + __("url.company").replace(":companyUrl", __('url.benefits')))
+          i.fa.fa-play
+          h3.title
+            =__("Benefits")
+    .row
+      .col-sm-12
+        a(href="/" + getLocale() + __("url.company").replace(":companyUrl", __('url.values')))
+          i.fa.fa-play
+          h3.title
+            =__("Values")
+    .row
+      .col-sm-12
         a.anchor(id="politics")
         a(href="/" + getLocale() + __("url.company").replace(":companyUrl", __('url.politics')) + '#politics')
           i.fa.fa-play
@@ -40,15 +52,3 @@ block content
               img(src="/images/certificado-unit.jpg" width="100%")
             .politcs-img
               img(src="/images/certificado-unit-sys.jpg" width="100%")
-    .row
-      .col-sm-12
-        a(href="/" + getLocale() + __("url.company").replace(":companyUrl", __('url.benefits')))
-          i.fa.fa-play
-          h3.title
-            =__("Benefits")
-    .row
-      .col-sm-12
-        a(href="/" + getLocale() + __("url.company").replace(":companyUrl", __('url.values')))
-          i.fa.fa-play
-          h3.title
-            =__("Values")
