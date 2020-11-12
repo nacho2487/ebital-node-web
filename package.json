@@ -5,6 +5,9 @@
     "type": "git",
     "url": "https://nacho2487@bitbucket.org/nacho2487/ebital-web.git"
   },
+  "engines": {
+    "node": "10.x"
+  },
   "scripts": {
     "start": "node app",
     "watch": "nodemon app --ignore '*.min.js'",
@@ -46,7 +49,4 @@
     "supertest": "^1.1.0",
     "uglify-js": "^2.7.1"
   },
-  "engines": {
-    "node": "4.6.0"
-  }
 }
