@@ -1,0 +1,33 @@
+doctype html
+html(lang=getLocale())
+  head
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    meta(name='csrf-token', content=_csrf)
+    title #{title} - Ebital
+    link(rel='stylesheet', href='/css/vendors/jquery-ui.min.css') 
+    link(rel='stylesheet', href='/css/admin.css') 
+    link(rel='stylesheet', href='/css/vendors/lightbox.min.css')
+    link(rel='stylesheet', href='/css/vendors/flags/css/flag-icon.min.css') 
+    block styles
+    script(src="/js/lib/tinymce/tinymce.min.js")
+  body
+    include partials/mixins
+    if user
+      include partials/header
+
+    .container
+      include partials/flash
+      block content
+
+    include partials/footer
+
+
+    script(src='/js/lib/jquery.min.js')
+    script(src='/js/lib/jquery-ui.min.js')
+    script(src='/js/lib/bootstrap.min.js')
+    script(src='/js/lib/lodash.min.js')
+    script(src='/js/lib/lightbox.min.js')
+    script(src='/js/admin.js')
+    block scripts

@@ -1,0 +1,33 @@
++pageHeader("Logo", 'logos', 1)
+table.table.table-condensed.table-logos
+	thead
+		tr
+			th
+			th=__n("Image", 1)
+			th=__("Title")
+			th=__("Published")
+			th
+	tbody
+		if logos.length
+			each logo, i in logos
+				tr
+					td.index
+						i.fa.fa-sort
+						input.logoId(type='hidden', value=logo._id)
+					td.image
+						+showImage(logo.image, ('logos-' + i))
+					td= logo.title
+					td 
+						if logo.publish
+							=__("Yes")
+						else
+							=__("No")                     
+					td
+						+deleteLink('logos', logo._id)
+						+editLink('logos', logo._id)
+
+
+		else 
+			tr
+				td.no-message(colspan='4')
+					=__n("NoMessage %%s", "NoMessage %%s", 1, __("Logos"))

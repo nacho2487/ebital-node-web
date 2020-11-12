@@ -1,0 +1,95 @@
+extends ../layout
+
+block content
+	.toolbar
+		+returnLink('/projects', __n("Project", 2))
+	form.form-horizontal(method='POST', enctype="multipart/form-data")
+		input(type='hidden', name='_csrf', value=_csrf)
+		input(type='hidden', id='projectId', value=project._id)
+		.form-group
+			label.col-sm-3.control-label(for='title')=__("Title")
+			.col-sm-7
+				+translateTextBox('title', project.title, 'required')
+		.form-group
+			label.col-sm-3.control-label(for='service')=__n("Service", 1)
+			.col-sm-7
+				select.form-control(id="service", name="service")
+					for service in services
+						if project.service && service.title[getLocale()] === project.service.title[getLocale()]
+							option(value=service._id, selected="selected") #{service.title[getLocale()]}
+						else
+							option(value=service._id) #{service.title[getLocale()]}
+		.form-group
+			label.col-sm-3.control-label(for='clientIn')=__n("Client", 1)
+			.col-sm-7
+				+translateTextBox('clientIn', project.clientIn)
+		.form-group
+			label.col-sm-3.control-label(for='locationIn')=__("Location")
+			.col-sm-7
+				+translateTextBox('locationIn', project.locationIn)
+		.form-group
+			label.col-sm-3.control-label(for='area')=__("Area")
+			.col-sm-7
+				+translateTextBox('area', project.area)
+		.form-group
+			label.col-sm-3.control-label(for='dateStart')=__("StartDate")
+			.col-sm-2
+				select.form-control(id="dateStartMonth", name="dateStart[month]")
+					option(value="")=__("Month")
+					for month in months
+						if month === project.dateStart.month
+							option(value=month, selected="selected")=__(month)
+						else
+							option(value=month)=__(month)
+			.col-sm-2
+				select.form-control(id="dateStartYear", name="dateStart[year]")
+					option(value="")=__("Year") 
+					for year in years
+						if year == project.dateStart.year
+							option(value=year, selected="selected")=year
+						else
+							option(value=year)=year
+		.form-group
+			label.col-sm-3.control-label(for='dateEnd')=__("EndDate")
+			.col-sm-2
+				select.form-control(id="dateEndMonth", name="dateEnd[month]")
+					option(value="")=__("Month")
+					for month in months
+						if month === project.dateEnd.month
+							option(value=month, selected="selected")=__(month)
+						else
+							option(value=month)=__(month)
+			.col-sm-2
+				select.form-control(id="dateEndYear", name="dateEnd[year]")
+					option(value="")=__("Year") 
+					for year in years
+						if year == project.dateEnd.year
+							option(value=year, selected="selected")=year
+						else
+							option(value=year)=year
+		.form-group
+			label.col-sm-3.control-label(for='description')=__("Description")
+			.col-sm-7
+				+translateDescription('description', 5, project.description)
+		.form-group
+			label.col-sm-3.control-label(for='text')=__("Text")
+			.col-sm-7
+				+translateText('text', 10, project.text)
+		.form-group
+			+addSingleImageField('project-principal-image', project.homeImage, __("PrincipalImage"))
+		.form-group
+			+addImagesField(__n("Image", 2), 'project-images', project.images, project._id, 'projects')
+		.form-group
+			label.col-sm-3.control-label(for='state')=__("State")
+			.col-sm-4
+				label.radio.col-sm-4
+					input(type='radio', checked=project.state=='finished', name='state', value='finished', data-toggle='radio')
+					span=__("Finished")
+				label.radio.col-sm-4
+					input(type='radio', name='state', checked=project.state=='in-progress', value='in-progress', data-toggle='radio')
+					span=__("InProgress")	
+		.form-group
+			+publishField(project.publish)
+		.form-group.form-buttons
+			button.btn.btn.btn-primary(type='submit')
+				=__("Save")

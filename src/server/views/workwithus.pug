@@ -1,0 +1,23 @@
+extends layout
+
+block content
+    #content-banner.carousel.row.hidden-xs
+        .col-sm-12
+            .item-img-about-us
+                img.img-about-us(alt="Sumate al equipo", title="Sumate al equipo", src='/images/sumate-al-equipo-mobile-1.jpg', data-srcset="/images/sumate-al-equipo-1.jpg 1000w")
+    .container.about-us
+        .col-xs-12
+            h4.title #{__("CapitalHuman")}
+            p
+                | #{__("WorkWithUs-line1")}
+            p
+                | #{__("WorkWithUs-line2")}
+                br
+                | #{__("WorkWithUs-line3")}
+            h4.title #{__("SendUsResume")}
+            p
+                | #{__("WorkWithUs-line4")}
+                br
+                br
+                a.links(href='mailto:capitalhumano@ebital.com.uy')  capitalhumano@ebital.com.uy
+            br

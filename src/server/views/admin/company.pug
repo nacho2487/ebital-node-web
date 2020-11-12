@@ -1,0 +1,26 @@
+extends layout
+
+block content
+	.row.page-header
+		h3.col-sm-9=header
+	form.form-horizontal(method='POST', enctype="multipart/form-data")
+		input(type='hidden', name='_csrf', value=_csrf)
+		input(type='hidden', name='companyid', id='companyid', value=company._id)
+		input(type='hidden', name='type', id='type', value=company.type)
+		input(type='hidden', name='position', id='position', value=company.position)
+		.form-group
+			label.col-sm-3.control-label(for='title')=__('Title')
+			.col-sm-7
+				+translateTextBox('title', company.title)
+		
+		.form-group
+			label.col-sm-3.control-label(for='text')=__('Text')
+			.col-sm-7
+				+translateText('text', 20, company.text)
+		.form-group
+			+addSingleImageField('company-image', company.image, __n('Image', 1))
+		.form-group
+			+publishField(company.publish)
+		.form-group.form-buttons
+			button.btn.btn.btn-primary(type='submit')
+				=__('Save')

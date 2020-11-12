@@ -1,0 +1,23 @@
+extends ../layout
+
+block content
+	.toolbar
+		+returnLink('/clients', __n("Client", 2))
+	form.form-horizontal(method='POST', enctype="multipart/form-data")
+		input(type='hidden', name='_csrf', value=_csrf)
+		input(type='hidden', id='logiId', value=logo._id)
+		.form-group
+			label.col-sm-3.control-label(for='title')=__("Title")
+			.col-sm-7
+				input.form-control(type='text', name='title', id='title', value=logo.title)
+		.form-group
+			label.col-sm-3.control-label(for='link')=__("Link")
+			.col-sm-7
+				input.form-control(type='text', name='link', id='link', value=logo.link)
+		.form-group
+			+addSingleImageField('logo-image', logo.image, __n("Image", 1))
+		.form-group
+			+publishField(logo.publish)
+		.form-group.form-buttons
+			button.btn.btn.btn-primary(type='submit')
+				=__("Save")

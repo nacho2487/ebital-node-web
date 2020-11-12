@@ -1,0 +1,70 @@
+extends ../layout
+
+block content
+
+	include ../logos/index
+	+pageHeader("Client", 'clients', 1)
+	table.table.table-condensed.table-clients
+		thead
+			tr
+				th
+				th=__n("Image", 1)
+				th=__("Name")
+				th=__("Company")
+				th=__("Published")
+				th
+		tbody
+			if clients.length
+				each client, i in clients
+					tr
+						td.index
+							i.fa.fa-sort
+							input.clientId(type='hidden', value=client._id)
+						td.image
+							+showImage(client.image, ('images-' + i))
+						td= client.name[getLocale()]
+						td= client.company[getLocale()]
+						td 
+							if client.publish
+								=__("Yes")
+							else
+								=__("No")                     
+						td
+							+deleteLink('clients', client._id)
+							+editLink('clients', client._id)
+
+
+			else 
+				tr
+					td.no-message(colspan='4')
+						=__n("NoMessage %%s", "NoMessage %%s", 1, __n("Client", 2))
+
+
+block scripts
+	script.
+		var fixHelperModified = function(e, tr) {
+				var $originals = tr.children();
+				var $helper = tr.clone();
+				$helper.children().each(function(index) {
+				$(this).width($originals.eq(index).width())
+				});
+				return $helper;
+			},
+		updateIndex = function(e, ui) {
+			$('td.index', ui.item.parent()).each(function (i) {
+			$(this).find('span').html(i + 1);
+			var clientId = $(this).find('.clientId').val();
+			$.post('/admin/clients/' + clientId + '/position/' + i + '/update');               
+			});
+		},
+		updateLogosIndex = function(e, ui) {
+			$('td.index', ui.item.parent()).each(function (i) {
+			$(this).find('span').html(i + 1);
+			var logoId = $(this).find('.logoId').val();
+			$.post('/admin/logos/' + logoId + '/position/' + i + '/update');               
+			});
+		};
+
+		$("table.table-clients tbody").sortable({helper: fixHelperModified, stop: updateIndex}).disableSelection();
+
+		$("table.table-logos tbody").sortable({helper: fixHelperModified, stop: updateLogosIndex}).disableSelection();

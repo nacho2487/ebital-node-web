@@ -1,0 +1,58 @@
+.navbar.navbar-default.navbar-fixed-top
+  .container
+    .navbar-header
+      button.navbar-toggle(type='button', data-toggle='collapse', data-target='.navbar-collapse')
+        span.sr-only Toggle navigation
+        span.icon-bar
+        span.icon-bar
+        span.icon-bar
+      a.navbar-brand(href='/' + getLocale() + '/admin')
+        img(src="/images/logo.png" height="60px") 
+    .collapse.navbar-collapse
+      ul.nav.navbar-nav
+        +headerLink('', __('Home'))
+        +headerLink('/projects', __n('Project', 2))       
+        +headerLink('/services', __n('Service', 2))                         
+        li.dropdown(class=title==__('Company')?'active':undefined)
+          a.dropdown-toggle(data-toggle="dropdown", href='#')=__('Company')
+            span.caret
+          ul.dropdown-menu
+            li
+              a(href='/' + getLocale() +'/admin/company/about-us/1')=__('AboutUs')
+            li
+              a(href='/' + getLocale() +'/admin/company/team/2')=__('ExecutiveTeam')
+            li
+              a(href='/' + getLocale() +'/admin/company/politics/3')=__('PoliticsAndCertificatios')
+            li
+              a(href='/' + getLocale() +'/admin/company/benefits/4')=__('Benefits')
+            li
+              a(href='/' + getLocale() +'/admin/company/values/5')=__('Values')            
+        +headerLink('/news', __n('News', 2))
+        +headerLink('/clients', __n('Client', 2))
+      ul.nav.navbar-nav.navbar-right
+        li.dropdown(role='presentation')
+          a.dropdown-toggle(data-toggle='dropdown', href='#', role='button', aria-haspopup='true', aria-expanded='false')
+            if getLocale() == 'es'
+              | Español &nbsp
+              span.flag-icon.flag-icon-es &nbsp
+            else if getLocale() == 'en'
+              | English &nbsp
+              span.flag-icon.flag-icon-gb &nbsp
+            span.caret
+          ul.dropdown-menu
+            li 
+              a(href="/es/admin", title='Español')
+                | Español &nbsp
+                span.flag-icon.flag-icon-es
+            li
+              a(href="/en/admin", title='Inglés')
+                | English &nbsp
+                span.flag-icon.flag-icon-gb
+       
+        li.divider-vertical
+        li
+          a.navbar-brand(href='/', title='Ir a página principal')
+            i.fa.fa-globe
+        li
+          a.navbar-brand(href='/user/logout', title='Cerrar sesión')
+            i.fa.fa-sign-out

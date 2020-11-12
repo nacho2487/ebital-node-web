@@ -1,0 +1,145 @@
+-
+	function getUrl(action) {
+		var lang = '';
+		switch(getLocale()) {
+		  case 'es':
+			lang = '';
+			break;
+		  case 'en':
+			lang = '/en';
+			break;
+		  default:
+			lang = '';
+		}
+		return lang + action === '' ? '/' : lang + action;
+	}
+
+mixin headerLink(action, name)
+	li(class=link==name?'active':undefined)
+		a(href=getUrl(action))=name
+
+mixin showProjects(projects, size)
+	- for(var  j = 0; j < projects.length;j=j+4)
+		.row
+			- for(var  i = j; i < j + 4;i++)
+				if i < projects.length
+					- var project = projects[i];
+					.project-highlighted.col-sm-3
+						a(href=getUrl(__("url.project").replace(":projectUrl", project.url[getLocale()])))
+							+showThumbImage(project.homeImage, size, project.title[getLocale()])
+							.project-hover.hide(style="background-color:" + project.service.color)
+								.text
+									.title=project.service && project.service.title[getLocale()]
+									.sub-title=project.service && project.title[getLocale()]
+									.description
+										if project.clientIn[getLocale()]
+											p #{__n("Client", 1)}: #{project.clientIn[getLocale()]}
+										if project.locationIn[getLocale()]
+											p #{__("Location")}: #{project.locationIn[getLocale()]}
+										if project.area[getLocale()]
+											p #{__("Area")}: #{project.area[getLocale()]}
+										if project.dateStart && project.dateStart.month && project.dateStart.year
+											p #{__("StartDate")}: #{__(project.dateStart.month)} #{project.dateStart.year}
+										if project.dateEnd && project.dateEnd.month && project.dateEnd.year
+											p #{__("EndDate")}: #{__(project.dateEnd.month)} #{project.dateEnd.year}
+
+mixin projectHeader(service, services, state, showInProgress, showFinished)
+	.col-sm-12.projects-header
+		.row
+			.service.col-xs-12.col-sm-2.col-md-4(style="background-color:" + service.color)
+				span=service.title[getLocale()]
+			.col-xs-12.col-sm-10.col-md-8
+				ul.services.pull-right.filter
+					each serviceDetail, i in services
+						li(style="background-color:" + serviceDetail.color + "; width: " + 100/services.length + "%")
+							a(href="/" + getLocale() + __("url.projectsByService").replace(":serviceUrl", serviceDetail.url[getLocale()]).replace("/:state?", ""))=serviceDetail.title[getLocale()]
+		.row
+			.col-sm-12
+				ul.services.state
+					if showFinished
+						li
+							if state == "finished"
+								i.fa.fa-play
+							a(class=state=="finished"?"active": "", href="/" + getLocale() +__("url.projectsByService").replace(":serviceUrl", service.url[getLocale()]).replace(":state?", "finished"))
+								=__("FinishedProjects")
+							if showFinished && showInProgress
+								span &nbsp;|
+					if showInProgress
+						li
+							if state == "in-progress"
+								i.fa.fa-play
+							a(class=state=="in-progress"?"active": "",href="/" + getLocale() +__("url.projectsByService").replace(":serviceUrl", service.url[getLocale()]).replace(":state?", "in-progress"))
+								=__("InProgressProjects")
+
+mixin showImage(image, height, title)
+	- var imageId = image.filename + '.' + image.fileext;
+	- var url = cloudinary.url(imageId)
+	img.img-project.col-sm-12(title=title, alt=title, height=height src=url)
+
+mixin showThumbImage(image, size, title)
+	- var imageId = image.filename + '.' + image.fileext;
+	- var url = cloudinary.url(imageId)
+	img.img-project.col-sm-12(title=title, alt=title, height=size src=url)
+	
+mixin company(page)
+	.row
+		.col-sm-12
+			a.anchor(id="about-us")
+			a(href="/" + getLocale() + __("url.company").replace(":companyUrl", __('url.about-us')) + '#about-us')
+				i.fa.fa-play
+				h3.title(, class={active: page.type === 'about-us'})
+					=__("AboutUs")
+			if page.type === 'about-us'
+				.text !{page.text[getLocale()]}
+	.row
+		.col-sm-12
+			a.anchor(id="team")
+			a(href="/" + getLocale() + __("url.company").replace(":companyUrl", __('url.team')) + '#team')
+				i.fa.fa-play
+				h3.title(class={active: page.type ==='team'})
+					=__("ExecutiveTeam")
+			if page.type === 'team'
+				.text !{page.text[getLocale()]}
+	.row
+		.col-sm-12
+			a(href="/" + getLocale() + __("url.company").replace(":companyUrl", __('url.benefits')))
+				i.fa.fa-play
+				h3.title(class={active: page.type === 'benefits'})
+					=__("Benefits")
+	.row
+		.col-sm-12
+			a(href="/" + getLocale() + __("url.company").replace(":companyUrl", __('url.values')))
+				i.fa.fa-play
+				h3.title(class={active: page.type === 'values'})
+					=__("Values")
+	.row
+		.col-sm-12
+			a.anchor(id="politics")
+			a(href="/" + getLocale() + __("url.company").replace(":companyUrl", __('url.politics')) + '#politics')
+				i.fa.fa-play
+				h3.title(class={active: page.type === 'politics'})
+					=__("PoliticsAndCertificatios")
+			if page.type === 'politics'
+				.text !{page.text[getLocale()]}
+
+mixin showMultipleImages(images)
+	if images.length > 0
+		.col-sm-12.column-left
+			#content-project-image.carousel.slide(data-ride="carousel")
+				.carousel-inner(role='listbox')
+					each image, i in images
+						- var imageId = image.filename + '.' + image.fileext;
+						.item(class=i===0?"active":"")
+							.clip.col-sm-1
+								- var url = image.url
+								a(href=image.url)
+									figure
+										- var url = cloudinary.url(imageId)
+										.blur-image(style="background-image:url(" + cloudinary.url(imageId) + ")")
+										img.banner-image.image-clip(src=url, height="400")
+				a.left.carousel-control(href='#content-project-image', role='button', data-slide='prev')
+					span.fa.fa-chevron-left.fa-2x(aria-hidden='true')
+					span.sr-only Previous
+				a.right.carousel-control(href='#content-project-image', role='button', data-slide='next')
+					span.fa.fa-chevron-right.fa-2x(aria-hidden='true')
+					span.sr-only Next

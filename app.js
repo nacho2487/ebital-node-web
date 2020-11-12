@@ -58,7 +58,7 @@ cloudinary.config({
 app.locals.cloudinary = cloudinary;
 app.set('port', process.env.PORT || 3000);
 app.set('views', path.join(__dirname, './src/server/views'));
-app.set('view engine', 'jade');
+app.set('view engine', 'pug');
 app.use(compress());
 app.use(sass({
 	src: path.join(__dirname, './src/client'),
@@ -107,12 +107,12 @@ if(app.get('env') === 'production') {
 
 	app.use(function(req, res) {
 		res.status(404);
-		res.render('errors/404.jade', {title: '404: Not Found'});
+		res.render('errors/404.pug', {title: '404: Not Found'});
 	});
 
 	app.use(function (error, req, res) {
 		res.status(500);
-		res.render('errors/500.jade', {title: '500: Error Interno', error: error});
+		res.render('errors/500.pug', {title: '500: Error Interno', error: error});
 	});
 }
 if (app.get('env') === 'development') {
