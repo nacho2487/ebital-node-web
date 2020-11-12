@@ -6,7 +6,7 @@
     "url": "https://nacho2487@bitbucket.org/nacho2487/ebital-web.git"
   },
   "engines": {
-    "node": "10.x"
+    "node": "10.22.1"
   },
   "scripts": {
     "start": "node app",
@@ -48,5 +48,5 @@
     "mocha": "^8.2.1",
     "supertest": "^1.1.0",
     "uglify-js": "^2.7.1"
-  },
+  }
 }
