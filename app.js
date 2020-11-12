@@ -8,7 +8,7 @@ var errorHandler = require('errorhandler');
 var lusca = require('lusca');
 var methodOverride = require('method-override');
 var dotenv = require('dotenv');
-var MongoStore = require('connect-mongo/es5')(session);
+var MongoStore = require('connect-mongo')(session);
 var flash = require('express-flash');
 var path = require('path');
 var mongoose = require('mongoose');
@@ -49,7 +49,10 @@ mongoose.connection.on('error', function() {
 require('./src/server/helpers/initializeDB');
 
 cloudinary.config({
-	cdn_subdomain: true
+	cdn_subdomain: true,
+	cloud_name: 'hd7vjzecs',
+	api_key: '621369911914528',
+
 });
 
 app.locals.cloudinary = cloudinary;
