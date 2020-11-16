@@ -61,6 +61,7 @@ app.locals.cloudinary = cloudinary;
 app.set('port', process.env.PORT || 3000);
 app.set('views', path.join(__dirname, './src/server/views'));
 app.set('view engine', 'pug');
+app.use(enforce.HTTPS({ trustProtoHeader: true }));
 app.use(compress());
 app.use(sass({
 	src: path.join(__dirname, './src/client'),
@@ -120,8 +121,6 @@ if(app.get('env') === 'production') {
 if (app.get('env') === 'development') {
 	app.use(errorHandler());
 }
-
-app.use(enforce.HTTPS());
 
 app.listen(app.get('port'), function() {
 	console.log('Express server listening on port %d in %s mode', app.get('port'), app.get('env'));
