@@ -20,6 +20,7 @@ var i18n = require('i18n');
 var cloudinary = require('cloudinary');
 var UglifyJS = require("uglify-js");
 var fs = require("fs");
+var enforce = require('express-sslify');
 
 
 var result = UglifyJS.minify(['./src/client/js/lib/jquery.min.js', './src/client/js/lib/bootstrap.min.js', './src/client/js/lib/lightbox.min.js', './src/client/js/main.js']);
@@ -118,6 +119,8 @@ if(app.get('env') === 'production') {
 if (app.get('env') === 'development') {
 	app.use(errorHandler());
 }
+
+app.use(enforce.HTTPS({ trustProtoHeader: true }));
 
 app.listen(app.get('port'), function() {
 	console.log('Express server listening on port %d in %s mode', app.get('port'), app.get('env'));
