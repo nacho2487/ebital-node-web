@@ -13,12 +13,12 @@ block content
 									- var link = logo.link
 									a(href=link, target="_blank")
 										span.helper
-										- var url = cloudinary.url(imageId, {width: 150})   
+										- var url = cloudinary.url(imageId, {width: 150, secure: true})   
 										- var title = logo.title   
 										img(alt=title, title=title, src=url)
 								else
 									span.helper
-									- var url = cloudinary.url(imageId, {width: 150})  
+									- var url = cloudinary.url(imageId, {width: 150, secure: true})  
 									- var title = logo.title
 									img(alt=title, title=title, src=url)
 	- for(var  j = 0; j < clients.length;j=j+4)
