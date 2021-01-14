@@ -52,7 +52,7 @@ require('./src/server/helpers/initializeDB');
 app.set('port', process.env.PORT || 3000);
 app.set('views', path.join(__dirname, './src/server/views'));
 app.set('view engine', 'pug');
-// app.use(enforce.HTTPS({ trustProtoHeader: true }));
+app.use(enforce.HTTPS({ trustProtoHeader: true }));
 app.use(compress());
 app.use(sass({
 	src: path.join(__dirname, './src/client'),
