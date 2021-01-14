@@ -7,7 +7,6 @@ It has a main web page full responsive and full localized for spanish and englis
    * Full responsive using bootstrap
    * CRUD operations on Mongo database
    * User login
-   * Images manager using Cloudinary server
    * Localization for Spanish and English
    * Unit test and integration test using Mocha BDD
    * Error handler using Express
@@ -21,7 +20,6 @@ It has a main web page full responsive and full localized for spanish and englis
    * Jade
    * i18n
    * Multer
-   * Cloudinary
    * Passport
    * Nodemailer
    * Mocha
@@ -45,20 +43,18 @@ Download MongoDB and start mongod using this guides for [windows](https://docs.m
    git clone https://github.com/nacho2487/ebital-node-web.git
    cd ebital-node-web
    ```
-3. (if you want to manage images) Create Cloudinary free account [here](https://cloudinary.com/users/register/free)
-4. (if you want to send emails) Create Sendgrid free account [here](https://app.sendgrid.com/signup?id=8b9ae93b-ce8a-11e4-b4e5-5fcde71ee009)
-5. Create configuration file .env
+3. (if you want to send emails) Create Sendgrid free account [here](https://app.sendgrid.com/signup?id=8b9ae93b-ce8a-11e4-b4e5-5fcde71ee009)
+4. Create configuration file .env
 On the root of the project create a .env file with this keys:   
    MONGOLAB_URI  (mongodb uri)   
    MONGOLAB_URI_TEST (mongodb uri for unit test)   
    SESSION_SECRET   
    SENDGRID_USER   
    SENDGRID_PASSWORD   
-   CLOUDINARY_URL   
    ADMIN_USER (first admin user created)   
    ADMIN_PASSWORD (first admin user created)   
 
-6. Start server
+5. Start server
 ```
 npm install
 npm start

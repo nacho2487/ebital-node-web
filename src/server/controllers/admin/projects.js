@@ -104,7 +104,8 @@ var projectController = function(Project, Service, Home) {
 		try {
 			req.item  = yield baseController.getById(req, res);
 			if(req.item.homeImage && req.item.homeImage.filename){
-				yield baseController.removeSingleImage(req.item.homeImage.filename);
+				var imageFileName = `${req.item.homeImage.filename}.${req.item.homeImage.fileext}`;
+				yield baseController.removeSingleImage(imageFileName);
 			}
 			if(req.item.images && req.item.images.length){
 				yield baseController.removeMultipleImages(req.item.images);
@@ -127,8 +128,9 @@ var projectController = function(Project, Service, Home) {
 
 	var removeImageFromList = co.wrap(function* (req, res, next){
 		try {
-			yield baseController.removeSingleImage(req.params.fileName);
-			var news = yield removeSingleImageFromImages(req.params.id, req.params.fileName);
+			var fileName = req.params.fileName.split('.')[0];
+			// yield baseController.removeSingleImage(req.params.fileName);
+			var news = yield removeSingleImageFromImages(req.params.id, fileName);
 			res.status(201).send(news);
 		} catch(err){
 			return next(err);

@@ -5,7 +5,7 @@ block content
 		.col-sm-12
 			.item-img-about-us
 				- var imageId = company.image.filename + '.' + company.image.fileext;
-				- var url = cloudinary.url(imageId)
+				- var url = `/${imageId}`
 				img.img-project.col-sm-12(src=url)
 				.about-us-image
 					.title

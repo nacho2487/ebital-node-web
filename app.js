@@ -18,7 +18,6 @@ var expressValidator = require('express-validator');
 var sass = require('node-sass-middleware');
 var passportConf = require('./src/server/helpers/passport');
 var i18n = require('i18n');
-var cloudinary = require('cloudinary');
 var UglifyJS = require("uglify-js");
 var fs = require("fs");
 var enforce = require('express-sslify');
@@ -50,18 +49,10 @@ mongoose.connection.on('error', function() {
 
 require('./src/server/helpers/initializeDB');
 
-cloudinary.config({
-	cdn_subdomain: true,
-	cloud_name: 'hd7vjzecs',
-	api_key: '621369911914528',
-
-});
-
-app.locals.cloudinary = cloudinary;
 app.set('port', process.env.PORT || 3000);
 app.set('views', path.join(__dirname, './src/server/views'));
 app.set('view engine', 'pug');
-app.use(enforce.HTTPS({ trustProtoHeader: true }));
+// app.use(enforce.HTTPS({ trustProtoHeader: true }));
 app.use(compress());
 app.use(sass({
 	src: path.join(__dirname, './src/client'),
@@ -96,6 +87,7 @@ app.use(function(req, res, next) {
 });
 app.use(i18n.init);
 app.use(express.static(path.join(__dirname, './src/client'), { maxAge: 31557600000 }));
+app.use(express.static(path.join(__dirname, './uploads'), { maxAge: 31557600000 }));
 
 function setLocale(req, res, next) {
 	i18n.setLocale(req, req.params.lang);

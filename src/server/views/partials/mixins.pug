@@ -73,12 +73,12 @@ mixin projectHeader(service, services, state, showInProgress, showFinished)
 
 mixin showImage(image, height, title)
 	- var imageId = image.filename + '.' + image.fileext;
-	- var url = cloudinary.url(imageId, { secure: true })
+	- var url = `/${imageId}`
 	img.img-project.col-sm-12(title=title, alt=title, height=height src=url)
 
 mixin showThumbImage(image, size, title)
 	- var imageId = image.filename + '.' + image.fileext;
-	- var url = cloudinary.url(imageId, { secure: true })
+	- var url = `/${imageId}`
 	img.img-project.col-sm-12(title=title, alt=title, height=size src=url)
 	
 mixin company(page)
@@ -131,11 +131,10 @@ mixin showMultipleImages(images)
 						- var imageId = image.filename + '.' + image.fileext;
 						.item(class=i===0?"active":"")
 							.clip.col-sm-1
-								- var url = image.url
-								a(href=image.url)
+								- var url = `/${imageId}`;
+								a(href=url)
 									figure
-										- var url = cloudinary.url(imageId, { secure: true })
-										.blur-image(style="background-image:url(" + cloudinary.url(imageId, { secure: true }) + ")")
+										.blur-image(style="background-image:url(" + url + ")")
 										img.banner-image.image-clip(src=url, height="400")
 				a.left.carousel-control(href='#content-project-image', role='button', data-slide='prev')
 					span.fa.fa-chevron-left.fa-2x(aria-hidden='true')

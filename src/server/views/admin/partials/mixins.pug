@@ -38,9 +38,12 @@ mixin addImagesField(label, type, images, id, url)
 			if images
 				.images-container.row
 					for image in images
+						- var filename = image.filename + '.' + image.fileext;
+						- var imageUrl = '/' + filename;
 						.image-field.col-sm-3
-							a.select-image.thumbnail(href=image.url, data-lightbox=type) !{cloudinary.image(image.filename + "." + image.fileext, { height: 100, width: 150, crop: "thumb", secure: true})}
-							a.remove-image.col-sm-12.text-center(href='#', imageFileName=image.filename, data-id=id, data-url=url)=__('Remove')
+							a.select-image.thumbnail(href=imageUrl, data-lightbox=type) 
+								img(src=imageUrl, height=100, width=150)
+							a.remove-image.col-sm-12.text-center(href='#', imageFileName=filename, data-id=id, data-url=url)=__('Remove')
 			.images-new-container.row
 			.images-toolbar.row
 				.pull-left.col-sm-12
@@ -66,9 +69,11 @@ mixin addSingleImageField(type, image, label)
 					input.field-upload.field-upload-0(type='file', name=type, tabindex='-1')
 
 mixin showImage(image, type)
-	if image && image.filename
+	- var imageUrl = '/' + image.filename + '.' + image.fileext;	
+	if image && image.filename		
 		.image-field
-			a.select-image.thumbnail(href=image.url, data-lightbox=type) !{cloudinary.image(image.filename + "." + image.fileext, { height: 100, width: 150, crop: "thumb", secure: true})}
+			a.select-image.thumbnail(href=imageUrl, data-lightbox=type) 
+				img(src=imageUrl, height=100, width=150)
 
 mixin publishField(published)
 	label.col-sm-3.control-label(for='publish')=__("Publish") 

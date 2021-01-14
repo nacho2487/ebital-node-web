@@ -13,7 +13,6 @@ var passport = require('passport');
 var expressValidator = require('express-validator');
 var passportConf = require('../helpers/passport');
 var i18n = require('i18n');
-var cloudinary = require('cloudinary');
 dotenv.load({ path: '.env' });
 var app = express();
 i18n.configure({
@@ -50,11 +49,6 @@ mongoose.connection.collections['pages'].drop( function() {
 userController.createFirstUser();
 require('../helpers/initializeDB');
 
-cloudinary.config({
-	cdn_subdomain: true
-});
-
-app.locals.cloudinary = cloudinary;
 app.set('port', process.env.PORT || 3001);
 app.set('views', path.join(__dirname, '../views'));
 app.set('view engine', 'pug');
