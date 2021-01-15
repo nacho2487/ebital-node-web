@@ -18,7 +18,7 @@ mixin headerLink(action, name)
 	li(class=link==name?'active':undefined)
 		a(href=getUrl(action))=name
 
-mixin showProjects(projects, size)
+mixin showProjects(projects, size, lazyLoad)
 	- for(var  j = 0; j < projects.length;j=j+4)
 		.row
 			- for(var  i = j; i < j + 4;i++)
@@ -26,7 +26,7 @@ mixin showProjects(projects, size)
 					- var project = projects[i];
 					.project-highlighted.col-sm-3
 						a(href=getUrl(__("url.project").replace(":projectUrl", project.url[getLocale()])))
-							+showThumbImage(project.homeImage, size, project.title[getLocale()])
+							+showThumbImage(project.homeImage, size, project.title[getLocale()], lazyLoad)
 							.project-hover.hide(style="background-color:" + project.service.color)
 								.text
 									.title=project.service && project.service.title[getLocale()]
@@ -76,10 +76,11 @@ mixin showImage(image, height, title)
 	- var url = `/${imageId}`
 	img.img-project.col-sm-12(title=title, alt=title, height=height src=url)
 
-mixin showThumbImage(image, size, title)
+mixin showThumbImage(image, size, title, lazyLoad)
 	- var imageId = image.filename + '.' + image.fileext;
 	- var url = `/${imageId}`
-	img.img-project.col-sm-12(title=title, alt=title, height=size src=url)
+	- var src = lazyLoad ? 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7' : url;
+	img.img-project.col-sm-12.lazy-loadable(title=title, alt=title, height=size, src=src, data-src=url)
 	
 mixin company(page)
 	.row

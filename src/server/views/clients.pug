@@ -20,7 +20,8 @@ block content
 									span.helper
 									- var url = `/${imageId}`
 									- var title = logo.title
-									img(alt=title, title=title, src=url)
+									- var src = lazyLoad ? 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7' : url;
+									img.lazy-loadable(alt=title, title=title, src=src, data-src=url)
 	- for(var  j = 0; j < clients.length;j=j+4)
 		.row
 			- for(var  i = j; i < j + 4;i++)
@@ -29,7 +30,7 @@ block content
 						.news-highlighted.col-sm-3
 							.image
 								span.helper
-								+showThumbImage(client.image, "240")
+								+showThumbImage(client.image, "240", true)
 							.back-text
 								.text
 									.name=client.name[getLocale()]

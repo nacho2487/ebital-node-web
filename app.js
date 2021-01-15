@@ -23,7 +23,7 @@ var fs = require("fs");
 var enforce = require('express-sslify');
 
 
-var result = UglifyJS.minify(['./src/client/js/lib/jquery.min.js', './src/client/js/lib/bootstrap.min.js', './src/client/js/lib/lightbox.min.js', './src/client/js/main.js']);
+var result = UglifyJS.minify(['./src/client/js/lib/jquery.min.js', './src/client/js/lib/bootstrap.min.js', './src/client/js/lib/lightbox.min.js', './src/client/js/main.js', './src/client/js/lazyLoad.js']);
 
 fs.writeFileSync('./src/client/js/main.min.js', result.code);
 

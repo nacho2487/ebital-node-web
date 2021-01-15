@@ -10,7 +10,7 @@ block content
 						.news-highlighted.col-sm-3
 							.image
 								span.helper
-								+showThumbImage(newsD.homeImage, "240")
+								+showThumbImage(newsD.homeImage, "240", true)
 							.date
 								if newsD.date.month && newsD.date.year
 									| #{__(newsD.date.month).substring(0, 3)}./#{newsD.date.year.substring(2, 4)}
