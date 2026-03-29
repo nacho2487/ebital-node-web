@@ -34,7 +34,7 @@
     "lodash": "^4.17.21",
     "lusca": "^1.4.1",
     "method-override": "^2.3.5",
-    "mongoose": "^5.10.13",
+    "mongoose": "^5.13.20",
     "morgan": "^1.6.1",
     "multer": "1.1.0",
     "newrelic": "^7.0.0",
