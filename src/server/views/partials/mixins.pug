@@ -94,15 +94,6 @@ mixin company(page)
 				.text !{page.text[getLocale()]}
 	.row
 		.col-sm-12
-			a.anchor(id="team")
-			a(href="/" + getLocale() + __("url.company").replace(":companyUrl", __('url.team')) + '#team')
-				i.fa.fa-play
-				h3.title(class={active: page.type ==='team'})
-					=__("ExecutiveTeam")
-			if page.type === 'team'
-				.text !{page.text[getLocale()]}
-	.row
-		.col-sm-12
 			a(href="/" + getLocale() + __("url.company").replace(":companyUrl", __('url.benefits')))
 				i.fa.fa-play
 				h3.title(class={active: page.type === 'benefits'})
